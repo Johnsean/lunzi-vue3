@@ -8,41 +8,6 @@
 </head>
 <body>
   <div id="app"></div>
-  <script type="module">
-    import { createApp } from 'vue'
-    import App from './App.vue'
-    import {createRouter, createWebHistory} from 'vue-router'
-    import Home from './views/Home.vue'
-    import Doc from './views/Documentation.vue'
-    import SwitchDemo from './components/SwitchDemo.vue'
-    import ButtonDemo from './components/ButtonDemo.vue'
-    import IconDemo from './components/IconDemo.vue'
-    // import './index.css'
-
-    const router = createRouter({
-      //hash
-      history: createWebHistory(),
-      routes: [
-        { 
-          path: '/', 
-          component: Home 
-        },
-        { 
-          path: '/doc', 
-          component: Doc,
-          children:[
-            {path: 'switch', component: SwitchDemo},
-            {path: 'button', component: ButtonDemo},
-            {path: 'icon', component: IconDemo}
-          ]
-        },
-      ]
-    })
-
-    const app = createApp(App)
-    app.use(router)
-    app.mount('#app')
-
-  </script>
+  <script type="module" src="/src/main.ts"></script>
 </body>
 </html>
