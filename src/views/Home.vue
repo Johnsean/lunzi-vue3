@@ -1,16 +1,13 @@
 <template>
-  <div class="home">
+  <div>
     <Topnav/>
     <div class="banner">
-      <div class="logo"></div>
-      <div class="intro">
-        <h1>Cot UI</h1>
-        <h2>基于 Vue 3 和 TypeScript 的 UI 框架</h2>
-        <div class="links">
-          <router-link to="/doc">查看文档</router-link> |
-          <a href="xxx">GitHub</a>
-        </div>
-      </div>
+      <h1>Cot UI</h1>
+      <h2>基于 Vue 3 和 TypeScript 的 UI 框架</h2>
+      <p class="actions">
+        <a href="xxx">GitHub</a>
+        <router-link to="/doc">开始</router-link> |
+      </p>
     </div>
   </div>
 </template>
@@ -23,29 +20,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .home {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    .intro {
-      padding: 100px 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      background: lightgreen;
-    }
-    .content {
-      flex-grow: 1;
-      display: flex;
-      >aside{
-        background: lightblue;
-        width: 200px;
-      }
-      >main{
-        background: lightblue;
-        flex-grow: 1;
-      }
+.banner {
+  padding: 100px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: lightgreen;
+  > .actions{
+    padding: 8px 0;
+    a {
+      margin:0 8px;
+      background: #fff;
+      display: inline-block;
+      $h: 28px;
+      height: $h;
+      line-height: $h;
+      border-radius: calc($h/2);
+      padding: 0 8px;
     }
   }
+}
 </style>
