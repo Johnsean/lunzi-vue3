@@ -1,5 +1,6 @@
 <template>
     <div class="topnav">
+        <span @click="toggleAside">黑黑</span>
         <div class="logo"><router-link to="/">Cot UI</router-link></div>
         <ul class="menu">
             <li>文档</li>
@@ -7,7 +8,20 @@
         </ul>
     </div>
 </template>
+<script lang="ts">
+import { inject, Ref } from 'vue'
 
+export default {
+    setup(){
+        const asideVisible = inject<Ref<boolean>>('asideVisible')
+        const toggleAside=()=>{
+            asideVisible.value = !asideVisible.value
+            console.log(asideVisible)
+        }
+        return {toggleAside}
+    }
+}
+</script>
 <style lang="scss" scoped>
 .topnav {
     background: pink;
