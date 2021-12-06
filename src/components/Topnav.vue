@@ -1,6 +1,6 @@
 <template>
     <div class="topnav">
-        <span @click="toggleAside">黑黑</span>
+        <span class="toggleAside" @click="toggleAside"></span>
         <div class="logo"><router-link to="/">Cot UI</router-link></div>
         <ul class="menu">
             <li>文档</li>
@@ -28,6 +28,8 @@ export default {
     display: flex;
     padding: 16px;
     position: relative;
+    justify-content: center;
+    align-items: center;
     z-index: 10;
     > .logo {
         max-width: 4em; 
@@ -40,6 +42,28 @@ export default {
         flex-wrap: nowrap;
         > li {
             margin: 0 1em;
+        }
+    }
+    >.toggleAside{
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background: red;
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: none;
+    }
+     @media (max-width:500px) {
+        > .menu{
+            display: none;
+        } 
+        > .logo{
+            margin: 0 auto;
+        }
+        >.toggleAside{
+            display: inline-block;
         }
     }
 }
