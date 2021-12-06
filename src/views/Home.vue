@@ -5,7 +5,7 @@
       <h1>Cot UI</h1>
       <h2>基于 Vue 3 和 TypeScript 的 UI 框架</h2>
       <p class="actions">
-        <a href="xxx">GitHub</a>
+        <a target="_blank" href="xxx">GitHub</a>
         <router-link to="/doc">开始</router-link> 
       </p>
     </div>

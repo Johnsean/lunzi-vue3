@@ -1,5 +1,5 @@
 <template>
-<div class="doc">
+<div>
     <Topnav/>  
     <div class="content">  
         <aside>
@@ -50,24 +50,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.doc {
+.content {
+    flex-grow: 1;
     display: flex;
-    flex-direction: column;
-    height:100vh;
-    .content {
-        flex-grow: 1;
-        display: flex;
-        max-width: 1000px;
-        width: 100%;
-        margin: 0 auto;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    >aside {
+        background: lightblue;
+        width: 150px;
+        padding: 16px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding-top: 70px;
+        > h2 {
+            margin-bottom: 4px;
+        }
+        > ul {
+            > li {
+            padding: 4px 0;
+            }
+        }
     }
-}
-aside {
-  background: lightblue;
-  width: 200px;
-}
-main {
-  flex-grow: 1;
-  background: lightgreen;
 }
 </style>
