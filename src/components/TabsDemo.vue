@@ -1,5 +1,5 @@
 <template>
     <div>
-        button示例
+        tabs 示例
     </div>
 </template>

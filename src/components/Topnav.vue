@@ -16,7 +16,6 @@ export default {
         const asideVisible = inject<Ref<boolean>>('asideVisible')
         const toggleAside=()=>{
             asideVisible.value = !asideVisible.value
-            console.log(asideVisible)
         }
         return {toggleAside}
     }

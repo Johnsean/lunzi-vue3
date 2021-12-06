@@ -14,11 +14,13 @@
                 <li>
                 <router-link to="/doc/button">Button 组件</router-link>
                 </li>
-                <!-- <li>
+                <li>
                 <router-link to="/doc/dialog">Dialog 组件</router-link>
                 </li>
                 <li>
-                <router-link to="/doc/input">Input 组件</router-link>
+                <router-link to="/doc/Tabs">Tabs 组件</router-link>
+                </li>
+                <!-- <router-link to="/doc/input">Input 组件</router-link>
                 </li>
                 <li>
                 <router-link to="/doc/tree">Tree 组件</router-link>

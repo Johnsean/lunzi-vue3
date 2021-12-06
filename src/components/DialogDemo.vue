@@ -1,5 +1,5 @@
 <template>
     <div>
-        button示例
+        diag示例
     </div>
 </template>
