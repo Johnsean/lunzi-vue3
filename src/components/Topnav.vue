@@ -12,9 +12,10 @@
 .topnav {
     background: pink;
     display: flex;
-    padding: 16px 0;
+    padding: 16px;
     > .logo {
-        max-width: 4em;
+        max-width: 4em; 
+        // max-width 随内容宽
         margin-right: auto;
     }
     > .menu {

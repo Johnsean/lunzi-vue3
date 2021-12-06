@@ -9,7 +9,7 @@
 </div>
 </template>
 
-<script>
+<script lang="ts">
 import Topnav from '../components/Topnav.vue'
 import Aside from '../components/Doc/Aside.vue'
 import Main from '../components/Doc/Main.vue'
