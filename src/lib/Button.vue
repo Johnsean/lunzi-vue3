@@ -1,5 +1,5 @@
 <template>
-    <button class="cot-button" :class="classes">
+    <button class="cot-button" :class="classes"  :disabled="disabled">
         <slot/>
     </button>
 </template>
@@ -8,31 +8,35 @@
 import { computed } from 'vue'
 
 export default {
-   props:{
-       theme:{
-          type: String,
-          default: 'button'
-       },
-       size:{
-          type: String,
-          default: 'normal'
-       },
-      level: {
-        type: String,
-        default: "normal",
-      }
-   },
-   setup(props, context) {
-     const {theme, size, level} = props
-     const classes = computed(()=>{
-       return {
-        [`cot-theme-${theme}`]: theme,
-        [`cot-size-${size}`]: size,
-        [`cot-level-${level}`]: level
-       }
-     })
-    return { classes }
-   }
+  props:{
+  theme:{   
+    type: String,
+    default: 'button'
+  },
+  size:{
+    type: String,
+    default: 'normal'
+  },
+  level: {
+    type: String,
+    default: "normal",
+  },
+  disabled: {
+    type: Boolean,
+    default: false,
+  }
+},
+setup(props) {
+  const {theme, size, level} = props
+  const classes = computed(()=>{
+    return {
+      [`cot-theme-${theme}`]: theme,
+      [`cot-size-${size}`]: size,
+      [`cot-level-${level}`]: level
+    }
+  })
+  return { classes }
+  }
 }
 </script>
 <style lang="scss">
@@ -42,6 +46,7 @@ $color: #333; // 默认字体颜色
 $blue: #40a9ff; // 颜色参数
 $red: #f56c6c;
 $radius: 4px; // 角度参数
+$grey: #909399;
 .cot-button {
   height: $h;
   padding: 0 12px;
@@ -78,6 +83,7 @@ $radius: 4px; // 角度参数
     &:hover,
     &:focus {
       color: lighten($blue, 20%);
+      text-decoration: underline;
     }
   }
   &.cot-theme-text {
@@ -143,6 +149,28 @@ $radius: 4px; // 角度参数
       &:hover,
       &:focus {
         color: darken($red, 10%);
+      }
+    }
+  }
+   &.cot-theme-button {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+      border-color: $grey;
+      &:hover {
+        border-color: $grey;
+      }
+      //   pointer-events: none;
+    }
+  }
+  &.cot-theme-link,
+  &.cot-theme-text {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+      &:hover {
+        text-decoration: none;
+        background-color: transparent;
       }
     }
   }
