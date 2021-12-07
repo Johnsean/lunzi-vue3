@@ -16,14 +16,19 @@ export default {
        size:{
           type: String,
           default: 'normal'
-       }
+       },
+      level: {
+        type: String,
+        default: "normal",
+      }
    },
    setup(props, context) {
-     const {theme, size} = props
+     const {theme, size, level} = props
      const classes = computed(()=>{
        return {
         [`cot-theme-${theme}`]: theme,
-        [`cot-size-${size}`]: size
+        [`cot-size-${size}`]: size,
+        [`cot-level-${level}`]: level
        }
      })
     return { classes }
@@ -35,6 +40,7 @@ $h: 32px; // 默认高度
 $border-color: #d9d9d9; // 边框默认颜色
 $color: #333; // 默认字体颜色
 $blue: #40a9ff; // 颜色参数
+$red: #f56c6c;
 $radius: 4px; // 角度参数
 .cot-button {
   height: $h;
@@ -49,6 +55,7 @@ $radius: 4px; // 角度参数
   border: 1px solid $border-color;
   border-radius: $radius;
   box-shadow: 0 1px 0 fade-out(black, 0.95);
+  transition: background 0.25s;
   box-sizing: border-box;
   & + & {
     margin-left: 8px; //  相邻组件间相隔8px
@@ -63,65 +70,6 @@ $radius: 4px; // 角度参数
   }
   &::-moz-focus-inner {
     border: 0;
-  }
-  &.cot-theme-default {
-    background: #fff;
-    border: 1px solid #dcdfe6;
-    &:hover, &:focus {
-      color: #222831;
-      border-color: #222831;
-      background-color: #eeeeee;
-    }
-  }
-  &.cot-theme-primary {
-    background: #00adb5;
-    border: 1px solid #00adb5;
-    color: #eeeeee;
-    &:hover, &:focus {
-      color: #eeeeee;
-      border-color: #222831;
-      background-color: #40babf;
-    }
-  }
-  &.cot-theme-success {
-    background: #4ecca3;
-    border: 1px solid #4ecca3;
-    color: #eeeeee;
-    &:hover, &:focus {
-      color: #eeeeee;
-      border-color: #222831;
-      background-color: #6be3bc;
-    }
-  }
-  &.cot-theme-danger {
-    background: #d72323;
-    border: 1px solid #d72323;
-    color: #eeeeee;
-    &:hover, &:focus {
-      color: #eeeeee;
-      border-color: #222831;
-      background-color: #dd5656;
-    }
-  }
-  &.cot-theme-info {
-    background: #52616b;
-    border: 1px solid #52616b;
-    color: #eeeeee;
-    &:hover, &:focus {
-      color: #eeeeee;
-      border-color: #222831;
-      background-color: #6c777d;
-    }
-  }
-  &.cot-theme-warning {
-    background: #fce38a;
-    border: 1px solid #fce38a;
-    color: #4a4444;
-    &:hover, &:focus {
-      color: #8e8282;
-      border-color: #222831;
-      background-color: #f7e4a4;
-    }
   }
   &.cot-theme-link {
     border-color: transparent;
@@ -150,6 +98,53 @@ $radius: 4px; // 角度参数
     font-size: 12px;
     height: 20px;
     padding: 0 4px;
+  }
+  &.cot-theme-button {
+    &.cot-level-main {
+      background: $blue;
+      color: white;
+      border-color: $blue;
+      &:hover,
+      &:focus {
+        background: darken($blue, 10%);
+        border-color: darken($blue, 10%);
+      }
+    }
+    &.cot-level-danger {
+      background: $red;
+      border-color: $red;
+      color: white;
+      &:hover,
+      &:focus {
+        background: darken($red, 10%);
+        border-color: darken($red, 10%);
+      }
+    }
+  }
+  &.cot-theme-link {
+    &.cot-level-danger {
+      color: $red;
+      &:hover,
+      &:focus {
+        color: darken($red, 10%);
+      }
+    }
+  }
+  &.cot-theme-text {
+    &.cot-level-main {
+      color: $blue;
+      &:hover,
+      &:focus {
+        color: darken($blue, 10%);
+      }
+    }
+    &.cot-level-danger {
+      color: $red;
+      &:hover,
+      &:focus {
+        color: darken($red, 10%);
+      }
+    }
   }
 }
 </style>
