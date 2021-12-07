@@ -27,31 +27,30 @@
     </div>
     <h1>示例3</h1>
     <div>
-        <div>
         <Button level="main">主要按钮</Button>
-        <Button>normal </Button>
+        <Button>普通按钮 </Button>
         <Button level="danger">危险按钮 </Button>
-        </div>
-        <div>
+    </div>
+    <div>
         <Button theme="link" level="main">主要链接按钮 </Button>
-        <Button theme="link">normal </Button>
+        <Button theme="link">普通链接按钮 </Button>
         <Button theme="link" level="danger">危险链接按钮 </Button>
-        </div>
-        <div>
+    </div>
+    <div>
         <Button theme="text" level="main">主要文本按钮 </Button>
-        <Button theme="text">normal </Button>
+        <Button theme="text">普通文本按钮 </Button>
         <Button theme="text" level="danger">危险文本按钮 </Button>
-        </div>
     </div>
     <h1>示例4</h1>
     <div>
-        <Button disabled>你好 </Button>
-        <Button theme="link" disabled>你好 </Button>
-        <Button theme="text" disabled>你好 </Button>
+        <Button disabled>禁用普通按钮 </Button>
+        <Button theme="link" disabled>禁用链接按钮 </Button>
+        <Button theme="text" disabled>禁用文本按钮 </Button>
     </div>
     <h1>示例5</h1>
     <div>
         <Button loading>加载中 </Button>
+        <Button theme="button" >加载完毕</Button>
     </div>
 </template>
 <script lang="ts">

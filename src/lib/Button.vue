@@ -20,15 +20,15 @@ export default {
   },
   level: {
     type: String,
-    default: "normal",
+    default: 'normal'
   },
   disabled: {
     type: Boolean,
-    default: false,
+    default: false
   },
   loading: {
     type: Boolean,
-    default: false,
+    default: false
   }
 },
 setup(props) {
