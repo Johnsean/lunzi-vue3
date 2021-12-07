@@ -82,17 +82,15 @@ $radius: 4px; // 角度参数
       background: darken(white, 5%);
     }
   }
-  &.cot-theme-button {
-    &.cot-size-big {
-      font-size: 24px;
-      height: 48px;
-      padding: 0 16px;
-    }
-    &.cot-size-small {
-      font-size: 12px;
-      height: 20px;
-      padding: 0 4px;
-    }
+  &.cot-size-big {
+    font-size: 24px;
+    height: 48px;
+    padding: 0 16px;
+  }
+  &.cot-size-small {
+    font-size: 12px;
+    height: 20px;
+    padding: 0 4px;
   }
 }
 </style>
