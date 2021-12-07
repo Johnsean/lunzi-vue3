@@ -1,12 +1,19 @@
 <template>
     <div> 
-        <h2>Button 示例1</h2>
+        <h2>Button 主题示例1</h2>
         <Button> 你好 </Button>
         <Button theme="button"> 你好 </Button>
         <Button theme="link"> 你好 </Button>
         <Button theme="text"> 你好 </Button>
+        <h2>主题示例2</h2>
+        <Button>default</Button>
+        <Button theme="primary">primary</Button>
+        <Button theme="warning">warning</Button>
+        <Button theme="success">success</Button>
+        <Button theme="danger">danger</Button>
+        <Button theme="info">info</Button>
     </div>
-    <h1>示例2</h1>
+    <h1> size示例 </h1>
     <div>
         <div>
             <Button size="big"> 大大大 </Button>

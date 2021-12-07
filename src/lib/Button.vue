@@ -64,6 +64,65 @@ $radius: 4px; // 角度参数
   &::-moz-focus-inner {
     border: 0;
   }
+  &.cot-theme-default {
+    background: #fff;
+    border: 1px solid #dcdfe6;
+    &:hover, &:focus {
+      color: #222831;
+      border-color: #222831;
+      background-color: #eeeeee;
+    }
+  }
+  &.cot-theme-primary {
+    background: #00adb5;
+    border: 1px solid #00adb5;
+    color: #eeeeee;
+    &:hover, &:focus {
+      color: #eeeeee;
+      border-color: #222831;
+      background-color: #40babf;
+    }
+  }
+  &.cot-theme-success {
+    background: #4ecca3;
+    border: 1px solid #4ecca3;
+    color: #eeeeee;
+    &:hover, &:focus {
+      color: #eeeeee;
+      border-color: #222831;
+      background-color: #6be3bc;
+    }
+  }
+  &.cot-theme-danger {
+    background: #d72323;
+    border: 1px solid #d72323;
+    color: #eeeeee;
+    &:hover, &:focus {
+      color: #eeeeee;
+      border-color: #222831;
+      background-color: #dd5656;
+    }
+  }
+  &.cot-theme-info {
+    background: #52616b;
+    border: 1px solid #52616b;
+    color: #eeeeee;
+    &:hover, &:focus {
+      color: #eeeeee;
+      border-color: #222831;
+      background-color: #6c777d;
+    }
+  }
+  &.cot-theme-warning {
+    background: #fce38a;
+    border: 1px solid #fce38a;
+    color: #4a4444;
+    &:hover, &:focus {
+      color: #8e8282;
+      border-color: #222831;
+      background-color: #f7e4a4;
+    }
+  }
   &.cot-theme-link {
     border-color: transparent;
     box-shadow: none;
