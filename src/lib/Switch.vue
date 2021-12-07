@@ -1,6 +1,9 @@
 <template>
     <div>
-        <button :class="{checked:value}" @click="toggle" >
+        <button 
+          class="cot-switch"
+          :class="{'cot-checked':value}" 
+          @click="toggle" >
             <span></span>
             <p v-if="!value">0</p>
             <p v-else>1</p>
@@ -8,7 +11,6 @@
     </div>
 </template>
 <script lang="ts">
-import { ref } from "vue"
 
 export default {
     props:{
@@ -27,7 +29,7 @@ export default {
 <style lang="scss" scoped>
  $h: 22px;
  $h2: $h - 4px;
-button {
+.cot-switch {
   position: relative;
   display: inline-block;
   width: $h * 2;
@@ -70,7 +72,7 @@ button {
     }
   }
 }
- button.checked {
+ .cot-switch.cot-checked {
   background-color: #1890ff;
   > span {
     left: calc(100% - #{$h2} - 2px);
