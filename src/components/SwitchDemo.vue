@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Switch :value="checked" @toggle-switch="checked= $event"/>
+        <Switch  v-model:value="checked"/>
     </div>
 </template>
 <script lang="ts">
