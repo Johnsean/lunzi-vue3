@@ -26,7 +26,7 @@ export default {
     }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
  $h: 22px;
  $h2: $h - 4px;
 .cot-switch {
@@ -37,13 +37,17 @@ export default {
   line-height: $h;
   vertical-align: middle;
   border: none;
+  margin-bottom: 8px;
   background-color: #bfbfbf;;
   border-radius: calc($h / 2);
   outline: none;
   cursor: pointer;
   transition: all 0.25s ease-in-out;
   &:focus {
-       box-shadow: 0 0 10px rgba(191, 191, 191, 0.7);
+    box-shadow: 0 0 5px rgba(191, 191, 191, 0.5);
+    &:hover {
+      box-shadow: none;
+    }
   }
   > span {
     position: absolute;
@@ -66,7 +70,6 @@ export default {
     transition: margin 0.25s ease-in-out;
   }
   &.active {
-       box-shadow: none;
     > span {
       width: $h + 2px;
     }
@@ -81,10 +84,12 @@ export default {
     margin: 0 25px 0 7px;
   }
   &:focus {
-    box-shadow: 0 0 10px rgba(24, 144, 255, 0.7);
+    box-shadow: 0 0 5px rgba(24, 144, 255, 0.5);
+     &:hover {
+      box-shadow: none;
+    }
   }
   &:active {
-    box-shadow: none;
     > span {
       width: $h + 2px;
       margin-left: -6px;

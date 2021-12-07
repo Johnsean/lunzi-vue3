@@ -82,7 +82,7 @@ $aside-index : 10;
   }
 
   >main {
-    flex-grow: 1;
+    flex-grow: 1; //宽度变化时占据剩余空间
     padding: 16px;
     background: lightgreen;
   }
