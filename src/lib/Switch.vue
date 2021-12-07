@@ -74,25 +74,25 @@ export default {
       width: $h + 2px;
     }
   }
-}
- .cot-switch.cot-checked {
-  background-color: #1890ff;
-  > span {
-    left: calc(100% - #{$h2} - 2px);
-  }
-  > p {
-    margin: 0 25px 0 7px;
-  }
-  &:focus {
-    box-shadow: 0 0 5px rgba(24, 144, 255, 0.5);
-     &:hover {
-      box-shadow: none;
-    }
-  }
-  &:active {
+  &.cot-checked {
+    background-color: #1890ff;
     > span {
-      width: $h + 2px;
-      margin-left: -6px;
+      left: calc(100% - #{$h2} - 2px);
+    }
+    > p {
+      margin: 0 25px 0 7px;
+    }
+    &:focus {
+      box-shadow: 0 0 5px rgba(24, 144, 255, 0.5);
+      &:hover {
+        box-shadow: none;
+      }
+    }
+    &:active {
+      > span {
+        width: $h + 2px;
+        margin-left: -6px;
+      }
     }
   }
 }
