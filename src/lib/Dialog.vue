@@ -3,9 +3,12 @@
     <div class="cot-dialog-overlay" @click="onClickOverlay"></div>
     <div class="cot-dialog-wrapper">
       <div class="cot-dialog">
-        <header>{{title}}<span class="cot-dialog-close" @click="close"></span></header>
+        <header>
+          <slot name="header">11111</slot>
+          <span class="cot-dialog-close" @click="close"></span>
+        </header>
         <main>
-          <slot>
+          <slot name="content">
             <p>1</p>
             <p>2</p>
           </slot>

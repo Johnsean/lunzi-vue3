@@ -7,8 +7,10 @@
     :closeOnClickOverlay="closeOnClickOverlay"
     :ok="fn1"
     :cancel="fn2"
-    title="标题1233"
-    >内容:"123456"</Dialog>
+    >
+    <template #header><strong>加粗的标题</strong></template>
+    <template #content> <strong>hi</strong><div>hi2</div></template>
+    </Dialog>
 </template>
 <script lang="ts">
 import Dialog from "../lib/Dialog.vue"
