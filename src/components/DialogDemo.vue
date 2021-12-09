@@ -3,11 +3,12 @@
   <h1>示例 1</h1>
   <Button @click="toggle">toggle</Button>
   <Dialog 
-    v-model:visible="x"
-    :closeOnClickOverlay="false"
+    v-model:visible="visible"
+    :closeOnClickOverlay="closeOnClickOverlay"
     :ok="fn1"
     :cancel="fn2"
-    ></Dialog>
+    title="标题1233"
+    >内容:"123456"</Dialog>
 </template>
 <script lang="ts">
 import Dialog from "../lib/Dialog.vue"
@@ -18,15 +19,16 @@ export default {
     name: 'DialogDemo',
     components: { Dialog,Button },
     setup() {
-        const x = ref(false)
-        const toggle = ()=>{
-            x.value = !x.value
+        const visible = ref(false) // 对话框是否可见
+        const closeOnClickOverlay = ref(true) // 点击对话框外时，对话框是否会关闭
+        const toggle = ()=>{ //控制对话框是否可见
+            visible.value = !visible.value
         }
-        const fn1 = () => {
+        const fn1 = () => {   //控制取消和 x一个按钮即可
             return false;
         };
         const fn2 = () => { return true};
-        return {x,toggle,fn1,fn2}
+        return {visible,closeOnClickOverlay,toggle,fn1,fn2}
     }
 }
 </script>

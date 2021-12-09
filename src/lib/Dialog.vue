@@ -3,10 +3,12 @@
     <div class="cot-dialog-overlay" @click="onClickOverlay"></div>
     <div class="cot-dialog-wrapper">
       <div class="cot-dialog">
-        <header>标题<span class="cot-dialog-close" @click="close"></span></header>
+        <header>{{title}}<span class="cot-dialog-close" @click="close"></span></header>
         <main>
-          <p>1</p>
-          <p>2</p>
+          <slot>
+            <p>1</p>
+            <p>2</p>
+          </slot>
         </main>
         <footer>
           <Button level="main" @click="ok">OK</Button>
@@ -28,13 +30,17 @@ export default {
       type: Boolean,
       default: true,
     },
+    title:{
+      type:String,
+      default: '标题'
+    },
     ok: Function,
     cancel: Function,
   },
   components: {
     Button,
   },
-  setup(props,context) {
+  setup(props, context) {
     const close = () => {
       context.emit('update:visible',false)
     }
