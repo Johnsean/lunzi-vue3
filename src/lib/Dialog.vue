@@ -2,7 +2,7 @@
   <template v-if="visible">
     <teleport to="body">
       <div class="cot-dialog-overlay" @click="onClickOverlay"></div>
-      <div class="cot-dialog-wrapper">
+      <div class="cot-dialog-wrapper" :style="styles">
         <div class="cot-dialog">
           <header>
             <slot name="title">{{title}}</slot>
@@ -15,8 +15,8 @@
             </slot>
           </main>
           <footer>
-            <Button level="main" @click="ok">OK</Button>
-            <Button @click="cancel">Cancel</Button>
+            <Button level="main" @click="ok" size="small">OK</Button>
+            <Button @click="cancel" size="small">Cancel</Button>
           </footer>
         </div>
       </div>
@@ -39,6 +39,14 @@ export default {
       type:String,
       default: '标题'
     },
+    width: {
+      type: String,
+      default: '50%'
+    },
+    top: {
+      type: String,
+      default: '100px'
+    },
     ok: Function,
     cancel: Function,
   },
@@ -46,8 +54,13 @@ export default {
     Button,
   },
   setup(props, context) {
+
+    const styles = {
+      minWidth: props.width,
+      top: props.top
+    }
     const close = () => {
-      context.emit('update:visible',false)
+      context.emit('update:visible',!props.visible)
     }
     const onClickOverlay = () => {
       if (props.closeOnClickOverlay) {
@@ -64,7 +77,8 @@ export default {
         close();
       }
     };
-    return { 
+    return {
+      styles, 
       close,
       onClickOverlay,
       ok,
@@ -80,8 +94,8 @@ $border-color: #d9d9d9;
   background: white;
   border-radius: $radius;
   box-shadow: 0 0 3px fade-out(black, 0.5);
-  min-width: 15em;
-  max-width: 90%;
+  // min-width: 15em;
+  // max-width: 90%;
   &-overlay {
     position: fixed;
     top: 0;
@@ -92,10 +106,13 @@ $border-color: #d9d9d9;
     z-index: 10;
   }
   &-wrapper {
+    min-width: 50%;
     position: fixed;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    // top: 50%;
+    // transform: translate(-50%, -50%);
+    top: 0;
+    transform: translateX(-50%);
     z-index: 11;
   }
   > header {
