@@ -7,10 +7,10 @@
     :closeOnClickOverlay="closeOnClickOverlay"
     :ok="fn1"
     :cancel="fn2"
-    >
-    <template #header><strong>加粗的标题</strong></template>
+  >
+    <template #title><strong>加粗的标题</strong></template>
     <template #content> <strong>hi</strong><div>hi2</div></template>
-    </Dialog>
+  </Dialog>
 </template>
 <script lang="ts">
 import Dialog from "../lib/Dialog.vue"
