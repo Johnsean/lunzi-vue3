@@ -1,7 +1,6 @@
 <template>
-  <div>Dialog 示例</div>
-  <h1>示例 1</h1>
-  <Button @click="toggle">toggle</Button>
+  <h1>dialog 基本用法</h1>
+  <Button @click="toggle" size="small">打开对话框</Button>
   <Dialog 
     v-model:visible="visible"
     :closeOnClickOverlay="closeOnClickOverlay"
@@ -12,7 +11,7 @@
     <template #content> <strong>hi</strong><div>hi2</div></template>
   </Dialog>
   <h1>示例 2 函数式调用</h1>
-  <Button @click="showDialog">show</Button>
+  <Button @click="showDialog" size="small">一键打开Dialog</Button>
 </template>
 <script lang="ts">
 import Dialog from "../lib/Dialog.vue"

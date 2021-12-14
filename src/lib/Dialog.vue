@@ -26,6 +26,7 @@
 <script lang="ts">
 import Button from "./Button.vue";
 export default {
+  name: 'Dialog',
   props: {
     visible: {
       type: Boolean,
@@ -33,7 +34,7 @@ export default {
     }, 
     closeOnClickOverlay: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     title:{
       type:String,
