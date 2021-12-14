@@ -11,11 +11,14 @@
     <template #title><strong>加粗的标题</strong></template>
     <template #content> <strong>hi</strong><div>hi2</div></template>
   </Dialog>
+  <h1>示例 2 函数式调用</h1>
+  <Button @click="showDialog">show</Button>
 </template>
 <script lang="ts">
 import Dialog from "../lib/Dialog.vue"
 import Button from "../lib/Button.vue";
-import { ref } from "vue";
+import { ref, h } from "vue";
+import { openDialog } from "../lib/openDialog";
 
 export default {
     name: 'DialogDemo',
@@ -30,7 +33,19 @@ export default {
             return false;
         };
         const fn2 = () => { return true};
-        return {visible,closeOnClickOverlay,toggle,fn1,fn2}
+        const showDialog = () => {
+          openDialog({
+            title: h("strong", {}, "标题"),
+            content: "你好",
+            ok() {
+              console.log("ok");
+            },
+            cancel() {
+              console.log("cancel");
+            },
+          });
+        };
+        return {visible,closeOnClickOverlay,toggle,fn1,fn2,showDialog}
     }
 }
 </script>
