@@ -1,24 +1,78 @@
 <template>
-    <div>
-        <slot></slot>
+    <div class="cot-tabs">
+        <div class="cot-tabs-nav">
+            <div class="cot-tabs-nav-item" 
+                v-for="(t,index) in titles" :key="index"
+                :class = "t === selected ? 'selected' : ''"
+                @click="()=>{select(t)}">
+                    {{t}}
+            </div>
+        </div>
+    </div>
+    <div class="cot-tabs-content">
+        <component :is="current"
+            :key="selected"
+            class="cot-tabs-content-item"
+        />
     </div>
 </template>
 <script lang="ts">
+import { computed } from 'vue'
 import Tab from './Tab.vue'
 
 export default{
     name: 'Tabs',
     props:{
-        titles:Object
+        selected: {
+            type:String,
+            default: '导航1'
+        }
     },
-    setup(props,context){
-        const tagList = context.slots.default()
-        console.log(context.slots.default())
-        tagList.forEach((tag)=>{
+    setup(props, context){
+        const defaults = context.slots.default()
+        defaults.forEach((tag)=>{
             if (tag.type !== Tab){
                 throw new Error('Tabs 的内部必须是 Tab')
             }
         })
+        const titles = defaults.map(item=>{
+            return item.props.title
+        })
+        const select  = (title: string)=>{
+            context.emit('update:selected',title)
+            return defaults.filter(item=> item.props.title === title)[0]
+        }
+        const current = computed(()=>{
+            return select(props.selected)
+        })
+        return {defaults,titles,select,current}
     }
 }
 </script>
+
+<style lang="scss">
+$blue: #40a9ff;
+$color: #333;
+$border-color: #d9d9d9;
+.cot-tabs {
+  &-nav {
+    display: flex;
+    color: $color;
+    border-bottom: 1px solid $border-color;
+    &-item {
+      padding: 8px 0;
+      margin: 0 16px;
+      cursor: pointer;
+      &:first-child {
+        margin-left: 0;
+      }
+      &.selected {
+        color: $blue;
+      }
+    }
+  }
+  &-content {
+    padding: 8px 0;
+  }
+}
+</style>
