@@ -2,8 +2,8 @@
     <h2>Tabs示例</h2>
     <Tabs v-model:selected="selected">
         <Tab title="学习">学习</Tab>
-        <Tab title="吃饭">吃饭</Tab>
-        <Tab title="睡觉">睡觉</Tab>
+        <Tab title="吃">吃饭</Tab>
+        <Tab title="睡觉21111">睡觉</Tab>
     </Tabs>
 </template>
 
