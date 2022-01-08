@@ -19,7 +19,7 @@
     </div>
 </template>
 <script lang="ts">
-import { computed,ref,onMounted,onUpdated } from 'vue'
+import { computed,ref,onMounted,watchEffect } from 'vue'
 import Tab from './Tab.vue'
 
 export default{
@@ -31,38 +31,40 @@ export default{
         }
     },
     setup(props, context){
-        const defaults = context.slots.default()
-        defaults.forEach((tag)=>{
-            if (tag.type !== Tab){
-                throw new Error('Tabs 的内部必须是 Tab')
-            }
-        })
-        const titles = defaults.map(item=>{
-            return item.props.title
-        })
-        const select  = (title: string)=>{
-            context.emit('update:selected',title)
-            return defaults.filter(item=> item.props.title === title)[0]
-        }
-        const current = computed(()=>{
-            return select(props.selected)
-        })
-
         const containerRef = ref<HTMLDivElement>(null)
         const selectedItem = ref<HTMLDivElement>(null)
         const indicator = ref<HTMLDivElement>(null)
-        const x = ()=>{ // 挂载的时候确定下划线的长度
-            const { width } = selectedItem.value.getBoundingClientRect()
-            indicator.value.style.width = width + 'px'
-            const { left: containerLeft}   = (containerRef.value as HTMLDivElement).getBoundingClientRect()
-            const { left: beSelectedNavLeft}   = selectedItem.value.getBoundingClientRect()
-            const indicatorLeft: number = beSelectedNavLeft -  containerLeft
-            indicator.value.style.left = `${indicatorLeft}px`
-            console.log(indicator.value.style.left)
-         
+
+        onMounted(()=>{
+            watchEffect(()=>{
+                // 挂载的时候确定下划线的长度
+                const { left: left1}   = (containerRef.value as HTMLDivElement).getBoundingClientRect()
+                const { width,left: left2 } = selectedItem.value.getBoundingClientRect()
+                const left: number = left2 -  left1
+                
+                console.log(left)
+
+                indicator.value.style.width = width + 'px'
+                indicator.value.style.left = `${left}px`
+            })
+        })
+
+        const defaults = context.slots.default()
+        defaults.forEach((tag)=>{
+            if (tag.type !== Tab){
+                throw new Error('Tabs 子标签必须是 Tab')
+            }
+        })
+
+        const titles = defaults.map(tag=>{
+            return tag.props.title
+        })
+        const select  = (title: String)=>{
+            context.emit('update:selected',title)
         }
-        onMounted(x)
-        onUpdated(x)
+        const current = computed(()=>{
+            return defaults.find((tag) => tag.props.title === props.selected)
+        })
 
         return {defaults,titles,select,current,selectedItem,indicator,containerRef}
     }
