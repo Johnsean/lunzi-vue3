@@ -1,13 +1,12 @@
 <template>
     <div class="topnav">
         <span class="toggleAside" @click="toggleAside"></span>
-        <div class="logo">
+        <router-link to="/" class="logo">
              <svg class="icon">
                 <use xlink:href="#icon-kouzi1"></use>
                 <span> 123</span>
             </svg>
-            <!-- <router-link to="/">Cot UI</router-link> -->
-        </div>
+        </router-link>
         <ul class="menu">
             <li>
                 <router-link to="/doc">文档</router-link>
