@@ -9,7 +9,9 @@
             <!-- <router-link to="/">Cot UI</router-link> -->
         </div>
         <ul class="menu">
-            <li>文档</li>
+            <li>
+                <router-link to="/doc">文档</router-link>
+            </li>
         </ul>
     </div>
 </template>
