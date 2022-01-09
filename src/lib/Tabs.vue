@@ -35,21 +35,21 @@ export default{
         const selectedItem = ref<HTMLDivElement>(null)
         const indicator = ref<HTMLDivElement>(null)
 
-        onMounted(()=>{
+        onMounted(()=>{ // 挂载的时候确定下划线的长度
             watchEffect(()=>{
-                // 挂载的时候确定下划线的长度
                 const { left: left1}   = (containerRef.value as HTMLDivElement).getBoundingClientRect()
                 const { width,left: left2 } = selectedItem.value.getBoundingClientRect()
                 const left: number = left2 -  left1
-                
                 console.log(left)
 
                 indicator.value.style.width = width + 'px'
                 indicator.value.style.left = `${left}px`
+            },{ // 解决异步
+                flush: "sync", //效果更新需要缓冲时间
             })
         })
 
-        const defaults = context.slots.default()
+        const defaults = context.slots.default()  // tab节点 （获取插槽内容）
         defaults.forEach((tag)=>{
             if (tag.type !== Tab){
                 throw new Error('Tabs 子标签必须是 Tab')
