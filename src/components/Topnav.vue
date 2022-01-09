@@ -1,10 +1,15 @@
 <template>
     <div class="topnav">
         <span class="toggleAside" @click="toggleAside"></span>
-        <div class="logo"><router-link to="/">Cot UI</router-link></div>
+        <div class="logo">
+             <svg class="icon">
+                <use xlink:href="#icon-kouzi1"></use>
+                <span> 123</span>
+            </svg>
+            <!-- <router-link to="/">Cot UI</router-link> -->
+        </div>
         <ul class="menu">
             <li>文档</li>
-            <li>捐款</li>
         </ul>
     </div>
 </template>
@@ -32,11 +37,15 @@ export default {
     justify-content: center;
     align-items: center;
     z-index: 20;
-    background: pink;
     > .logo {
         max-width: 4em; 
         // max-width 随内容宽
         margin-right: auto;
+        > svg {
+            width: 32px;
+            height: 32px;
+            // background: inherit;
+        }
     }
     > .menu {
         display: flex;

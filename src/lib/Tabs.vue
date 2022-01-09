@@ -40,7 +40,6 @@ export default{
                 const { left: left1}   = (containerRef.value as HTMLDivElement).getBoundingClientRect()
                 const { width,left: left2 } = selectedItem.value.getBoundingClientRect()
                 const left: number = left2 -  left1
-                console.log(left)
 
                 indicator.value.style.width = width + 'px'
                 indicator.value.style.left = `${left}px`
