@@ -17,7 +17,7 @@
               </li>
             </ol>
             <h2>组件列表</h2>
-            <ul>
+            <ol>
                 <li>
                 <router-link to="/doc/switch">Switch 组件</router-link>
                 </li>
@@ -47,7 +47,7 @@
                 <li>
                 <router-link to="/doc/form">Form 组件</router-link>
                 </li> -->
-            </ul>
+            </ol>
         </aside>
       </transition>
         <main>
@@ -120,8 +120,9 @@ aside {
     margin-bottom: 4px;
     padding: 0 16px;
   }
-  >ul {
+  >ol {
     >li {
+      padding: 4px 0;
       >a {
         display: block;
         padding: 4px 16px;
