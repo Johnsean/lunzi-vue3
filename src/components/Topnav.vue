@@ -1,10 +1,21 @@
 <template>
     <div class="topnav">
-        <span class="toggleAside" @click="toggleAside"></span>
+        <span 
+            v-if="toggleMenuButtonVisible" 
+            class="toggleAside" 
+            @click="toggleAside">
+            <transition name="fade">
+                <svg v-if="asideVisible">
+                    <use xlink:href="#icon-_caidan"></use>
+                </svg>
+                <svg v-else>
+                    <use xlink:href="#icon-caidan"></use>
+                </svg>
+            </transition>
+        </span>
         <router-link to="/" class="logo">
              <svg class="icon">
                 <use xlink:href="#icon-kouzi1"></use>
-                <span> 123</span>
             </svg>
         </router-link>
         <ul class="menu">
@@ -18,12 +29,18 @@
 import { inject, Ref } from 'vue'
 
 export default {
+    props: {
+        toggleMenuButtonVisible: {
+            type: Boolean,
+            default: false
+        }
+    },
     setup(){
         const asideVisible = inject<Ref<boolean>>('asideVisible')
         const toggleAside=()=>{
             asideVisible.value = !asideVisible.value
         }
-        return {toggleAside}
+        return {toggleAside, asideVisible}
     }
 }
 </script>
@@ -38,13 +55,16 @@ export default {
     justify-content: center;
     align-items: center;
     z-index: 20;
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
     > .logo {
         max-width: 4em; 
         // max-width 随内容宽
         margin-right: auto;
-        > svg {
-            width: 32px;
-            height: 32px;
+        svg {
+            width: 42px;
+            height: 34px;
+            margin-top:2px;
             // background: inherit;
         }
     }
@@ -58,13 +78,17 @@ export default {
     }
     >.toggleAside{
         display: none;
-        width: 24px;
-        height: 24px;
-        background: red;
+        width: 32px;
+        height: 32px;
         position: absolute;
         left: 16px;
         top: 50%;
         transform: translateY(-50%);
+        overflow: hidden;  
+        > svg {
+            width: 32px;
+            height: 32px;
+        }
     }
      @media (max-width:500px) {
         > .menu{

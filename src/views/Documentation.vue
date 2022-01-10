@@ -1,7 +1,8 @@
 <template>
 <div class="layout">
-    <Topnav class="nav"/>  
-    <div class="content">  
+    <Topnav :toggleMenuButtonVisible="true" class="nav"/>  
+    <div class="content"> 
+      <transition name="slide">
         <aside v-if="asideVisible">
             <h2>组件列表</h2>
             <ul>
@@ -36,6 +37,7 @@
                 </li> -->
             </ul>
         </aside>
+      </transition>
         <main>
             <router-view/>
         </main>
@@ -90,7 +92,7 @@ $aside-index : 10;
 
 aside {
   background: lightblue;
-  width: 150px;
+  width: 285px;
   padding: 16px 0;
   position: fixed;
   top: 0;
@@ -98,6 +100,7 @@ aside {
   padding-top: 70px;
   height: 100%;
   z-index: $aside-index;
+  transition: all 0.4s cubic-bezier(0.68, 0.18, 0.53, 0.18) 0.1s;
   >h2 {
     margin-bottom: 4px;
     padding: 0 16px;
