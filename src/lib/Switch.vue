@@ -3,7 +3,8 @@
         <button 
           class="cot-switch"
           :class="{'cot-checked':value}" 
-          @click="toggle" >
+          @click="toggle"
+          :disabled="disabled" >
             <span></span>
             <p v-if="!value">0</p>
             <p v-else>1</p>
@@ -14,7 +15,11 @@
 
 export default {
     props:{
-        value:Boolean
+        value:Boolean,
+        disabled: {
+          type:Boolean,
+          default: false
+        }
     },
     setup(props, context){
         const toggle=()=>{
@@ -43,6 +48,13 @@ export default {
   outline: none;
   cursor: pointer;
   transition: all 0.25s ease-in-out;
+  &[disabled] {
+    // pointer-events: none;
+    cursor: not-allowed;
+    > span {
+      pointer-events: none;
+    }
+  }
   &:focus {
     box-shadow: 0 0 5px rgba(191, 191, 191, 0.5);
     &:hover {
