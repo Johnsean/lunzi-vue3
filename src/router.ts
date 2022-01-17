@@ -14,9 +14,9 @@ import Getstart from "./views/Getstart.vue";
 
 import {h} from 'vue'
 
-const md = (filename) => {
-  return h(Markdown, {path: `../markdown/${filename}.md`, key: filename})
-}
+// const md = (filename) => {
+//   return h(Markdown, {path: `../markdown/${filename}.md`, key: filename})
+// }
 
 export const router = createRouter({
   //hash
