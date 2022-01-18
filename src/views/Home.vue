@@ -48,11 +48,18 @@ export default {
 
 <style lang="scss" scoped>
 .topnavAndBanner {
+  background: #e8cbc0; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    145deg,
+    #e8cbc0,
+    #636fa4
+  ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     145deg,
-    rgba(227, 255, 253, 1) 0%,
-    rgba(183, 233, 230, 1) 100%    
-  );
+  #e8cbc0,
+  #636fa4
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
   clip-path: ellipse(80% 60% at 50% 40%); // 使用圆弧
 }
 .features {
@@ -79,6 +86,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
     > li {
+      color: #6f486b;
       margin: 16px 0;
       display: grid;
       justify-content: start;
@@ -109,14 +117,15 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  color: #44295b;
   // background: rgb(202, 249, 234);
   > .actions{
-    padding: 8px 0;
+    padding: 8px 4px;
     color: white;
     outline: none;
     a {
       margin:0 8px;
-      background:#02bcb0;
+      background: #636fa4;
       display: inline-block;
       $h: 28px;
       height: $h;
