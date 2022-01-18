@@ -1,10 +1,11 @@
 import "./index.scss";
+import "./lib/cot.scss";
+import 'github-markdown-css'
+
 import { createApp } from 'vue'
 import App from './App.vue'
-import { router } from "./router"
-import "./lib/cot.scss";
 
-import 'github-markdown-css'
+import { router } from "./router"
 
 import Markdown from './components/Markdown.vue'
 
