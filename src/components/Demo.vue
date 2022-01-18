@@ -1,16 +1,16 @@
 <template>
-    <div class="demo">
-        <h2>{{ component.__sourceCodeTitle }}</h2>
-        <div class="demo-component">
-            <component :is="component" />
-        </div>
-        <div class="demo-actions">
-            <Button @click="toggleCode">查看代码</Button>
-        </div>
-        <div class="demo-code" v-if="codeVisible">
-            <pre class="language-html" v-html="html" />
-        </div>
+  <div class="demo">
+    <h2>{{ component.__sourceCodeTitle }}</h2>
+    <div class="demo-component">
+      <component :is="component" />
     </div>
+    <div class="demo-actions">
+      <Button @click="toggleCode">查看代码</Button>
+    </div>
+    <div class="demo-code" v-if="codeVisible">
+      <pre class="language-html" v-html="html" />
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
