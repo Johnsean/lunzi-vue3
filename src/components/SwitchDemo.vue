@@ -10,7 +10,7 @@
                 <Button>查看代码</Button>
             </div>
             <div class="demo-code">
-                <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
+                <pre>{{ Switch1Demo.__sourceCode }}</pre>
             </div>
         </div>
         <div class="demo">
@@ -22,7 +22,7 @@
             <Button>查看代码</Button>
           </div>
           <div class="demo-code">
-            <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
+            <pre>{{ Switch2Demo.__sourceCode }}</pre>
           </div>
         </div>
     </div>
@@ -38,9 +38,7 @@ import { ref } from 'vue'
 export default{
     components:{ Switch, Button, Switch1Demo, Switch2Demo },
     setup() {
-        const checked = ref(false)
-        const bool = ref(false)
-        return {checked,bool}
+        return { Switch1Demo, Switch2Demo }
     }
 }
 </script>
@@ -65,6 +63,7 @@ $border-color: #d9d9d9;
   &-code {
     padding: 8px 16px;
     border-top: 1px dashed $border-color;
+    overflow: auto;
     > pre {
       line-height: 1.1;
       font-family: Consolas, 'Courier New', Courier, monospace;
