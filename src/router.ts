@@ -12,7 +12,6 @@ import Intro from "./views/Intro.vue";
 import Install from "./views/Install.vue";
 import Getstart from "./views/Getstart.vue";
 
-import {h} from 'vue'
 
 // const md = (filename) => {
 //   return h(Markdown, {path: `../markdown/${filename}.md`, key: filename})
