@@ -82,7 +82,7 @@ export default {
         transparent;
       border-style: solid;
       border-width: 2px;
-      animation: kaite-spin 1s infinite linear;
+      animation: cot-spin 1s infinite linear;
     }
   }
   >p {
