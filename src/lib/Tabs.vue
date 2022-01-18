@@ -50,7 +50,10 @@ export default{
 
         const defaults = context.slots.default()  // tab节点 （获取插槽内容）
         defaults.forEach((tag)=>{
-            if (tag.type !== Tab){
+            // if (tag.type !== Tab){
+           
+           // @ts-ignore
+            if (tag.type.name !== Tab.name){ //生产环境
                 throw new Error('Tabs 子标签必须是 Tab')
             }
         })
