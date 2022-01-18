@@ -7,19 +7,27 @@
 	-ms-user-select: none;
 	user-select: none;
 }
-ul, ol {list-style: none;}
+ul, ol,li {list-style: none;}
 a {
     text-decoration: none;
     color: inherit;
     &:hover {
-        border-bottom: 1px solid red;
+        border-bottom: 1px solid;
         cursor: pointer;
     }
 }
 
 h1,h2,h3,h4,h5,h6{
     font-weight: normal;
-  }
+}
+
+button {text-transform: none;}
+button,input {overflow: visible;}
+
+a, area, button, label, select, summary, textarea {
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
 
 body {
     font-size: 16px;
@@ -33,4 +41,4 @@ body {
     vertical-align: -0.15em;
     fill: currentColor;
     overflow: hidden;
-  }
+}
