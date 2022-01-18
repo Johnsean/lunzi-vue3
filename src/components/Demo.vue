@@ -8,9 +8,6 @@
       <Button @click="toggleCode"> {{ codeVisible === true ? '隐藏代码' : '显示代码' }} </Button>
     </div>
     <div :class="'demo-code' + [codeVisible ? ' code-show ' : ' code-hidden '] ">
-    <!-- <transition name="code">
-      <SourceCode v-if="codeVisible" :code="html"></SourceCode>
-    </transition> -->
       <pre class="language-html" v-html="html" />
     </div>
   </div>
@@ -18,7 +15,7 @@
 
 <script lang="ts">
 import Button from '../lib/Button.vue'
-// import SourceCode from "./SourceCode.vue";
+
 import 'prismjs'
 import 'prismjs/themes/prism.css'
 import { computed, ref } from 'vue'
@@ -27,7 +24,6 @@ const Prism = (window as any).Prism
 export default {
     components: { 
       Button,
-     // SourceCode,
     },
     props: { component: Object },
     setup(props) {
@@ -46,9 +42,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$border-color: #d9d9d9;
+$border-color: #333;
 .demo {
   border: 1px solid $border-color;
+  border-radius: 5px;
   margin: 16px 0 32px;
   max-width: 500px;
   > h2 {
@@ -61,7 +58,7 @@ $border-color: #d9d9d9;
   }
   &-actions {
     padding: 8px 16px;
-    border-top: 1px dashed $border-color;
+    border-top: 1px solid $border-color;
   }
   &-code {
     // padding: 8px 16px;

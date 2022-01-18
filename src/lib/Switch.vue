@@ -4,31 +4,35 @@
           class="cot-switch"
           :class="{'cot-checked':value}" 
           @click="toggle"
-          :disabled="disabled" >
-            <span></span>
-            <p v-if="!value">0</p>
-            <p v-else>1</p>
+          :disabled="loading ? true : disabled" >
+            <span><span class="cot-switch-loading" v-if="loading"></span></span>
+            <p v-if="value">on</p>
+            <p v-else>off</p>
         </button>
     </div>
 </template>
 <script lang="ts">
 
 export default {
-    props:{
-        value:Boolean,
-        disabled: {
-          type:Boolean,
-          default: false
-        }
+  props:{
+    value:Boolean,
+    disabled: {
+      type:Boolean,
+      default: false
     },
-    setup(props, context){
-        const toggle=()=>{
-            context.emit('update:value',!props.value)
-        }
-        return {
-            toggle
-        }
+    loading: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  setup(props, context){
+    const toggle=()=>{
+      context.emit('update:value',!props.value)
     }
+    return {
+      toggle
+    }
+  }
 }
 </script>
 <style lang="scss">
@@ -49,12 +53,9 @@ export default {
   cursor: pointer;
   transition: all 0.25s ease-in-out;
   &[disabled] {
-    // pointer-events: none;
-    cursor: not-allowed;
-    > span {
-      pointer-events: none;
-    }
+    pointer-events: none;
   }
+
   &:focus {
     box-shadow: 0 0 5px rgba(191, 191, 191, 0.5);
     &:hover {
@@ -71,14 +72,26 @@ export default {
     border-radius: calc($h / 2);
     background-color: #fff;
     transition: all 0.25s ease-in-out;
+    > .cot-switch-loading {
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      // margin-right: 4px;
+      border-radius: 8px;
+      border-color: lighten(#8486ab, 20%) lighten(#8486ab, 10%) #8486ab
+        transparent;
+      border-style: solid;
+      border-width: 2px;
+      animation: kaite-spin 1s infinite linear;
+    }
   }
   >p {
     display: inline-block;
-    width: 12px;
+    width: 14px;
     height: $h;
-    font-size: 12px;
+    font-size: 14px;
     color: #fff;
-    margin: 0 7px 0 25px;
+    margin: 0 7px 0 22px;
     transition: margin 0.25s ease-in-out;
   }
   &.active {

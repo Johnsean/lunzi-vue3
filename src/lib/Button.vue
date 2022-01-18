@@ -190,13 +190,5 @@ $grey: #909399;
     border-width: 2px;
     animation: cot-spin 1s infinite linear;
   }
-  @keyframes cot-spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
 }
 </style>
