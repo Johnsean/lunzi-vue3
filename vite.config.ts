@@ -5,6 +5,8 @@ import fs from "fs";
 import { baseParse } from "@vue/compiler-core"
 
 export default {
+  base: "./",
+  assetsDir: "assets",
   plugins: [md()],
   vueCustomBlockTransforms: { //通过该选项 指定自定义块的转换规则
     demo: (options) => {
