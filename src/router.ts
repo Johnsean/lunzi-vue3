@@ -6,7 +6,6 @@ import ButtonDemo from './components/ButtonPage/ButtonDemo.vue'
 import DialogDemo from './components/DialogPage/DialogDemo.vue'
 import TabsDemo from './components/TabsPage/TabsDemo.vue'
 import IconDemo from './components/IconDemo.vue'
-import DocDemo from './components/DocDemo.vue'
 
 import Intro from "./views/Intro.vue";
 import Install from "./views/Install.vue";
@@ -27,7 +26,7 @@ export const router = createRouter({
     { 
       path: '/doc', component: Doc,
       children:[
-        {path:'',component:DocDemo},
+        {path:'',redirect: "/doc/intro"},
         {path: 'intro',component: Intro},
         {path: 'get-start', component: Getstart},
         {path: 'install', component: Install},
