@@ -24,17 +24,16 @@ export default {
     components: { Button },
     props: { component: Object },
     setup(props) {
-        const html = computed(()=>{
-            return Prism.highlight(
-                props.component.__sourceCode,
-                Prism.language-html,
-                'html'
-            )
-            
-        })
-        const toggleCode = () => { codeVisible.value = !codeVisible.value }
-        const codeVisible = ref(false)
-        return { Prism, html, codeVisible, toggleCode}
+      const codeVisible = ref(false)
+      const toggleCode = () => { codeVisible.value = !codeVisible.value }
+      const html = computed(() => {
+        return Prism.highlight(
+          props.component.__sourceCode,
+          Prism.language-html,
+          'html'
+        )
+      })
+      return { Prism, html, codeVisible, toggleCode}
     }
 }
 </script>
