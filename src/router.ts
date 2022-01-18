@@ -7,9 +7,6 @@ import DialogDemo from './components/DialogPage/DialogDemo.vue'
 import TabsDemo from './components/TabsPage/TabsDemo.vue'
 import IconDemo from './components/IconDemo.vue'
 
-// import Intro from './views/Intro.vue';
-// import Install from './views/Install.vue';
-// import Getstart from './views/Getstart.vue';
 import Intro from './markdown/intro.md'
 import Install from './markdown/install.md'
 import Getstart from './markdown/get-start.md'
