@@ -1,5 +1,5 @@
 <template>
-    <button class="cot-button" :class="classes"  :disabled="disabled">
+    <button class="cot-button" :class="classes"  :disabled="loading ? true : disabled">
         <span v-if="loading" class="cot-loadingIndicator"></span>
         <slot/>
     </button>
@@ -10,47 +10,48 @@ import { computed } from 'vue'
 
 export default {
   props:{
-  theme:{   
-    type: String,
-    default: 'button'
-  },
-  size:{
-    type: String,
-    default: 'normal'
-  },
-  level: {
-    type: String,
-    default: 'normal'
-  },
-  disabled: {
-    type: Boolean,
-    default: false
-  },
-  loading: {
-    type: Boolean,
-    default: false
-  }
-},
-setup(props) {
-  const {theme, size, level} = props
-  const classes = computed(()=>{
-    return {
-      [`cot-theme-${theme}`]: theme,
-      [`cot-size-${size}`]: size,
-      [`cot-level-${level}`]: level
+    size:{
+      type: String,
+      default: 'normal'
+    },
+    level: {
+      type: String,
+      default: 'normal'
+    },
+    round: {
+      type: Boolean,
+      default: false,
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    loading: {
+      type: Boolean,
+      default: false
     }
-  })
-  return { classes }
+  },
+  setup(props) {
+    const {round, size, level} = props
+    const classes = computed(()=>{
+      return {
+        [`cot-size-${size}`]: size,
+        [`cot-level-${level}`]: level,
+        [`cot-theme-${round ? "round" : "normal"}`]: round
+      }
+    })
+    return { classes }
   }
 }
 </script>
 <style lang="scss">
 $h: 32px; // 默认高度
-$border-color: #d9d9d9; // 边框默认颜色
+$border-color: #333; // 边框默认颜色
 $color: #333; // 默认字体颜色
 $blue: #40a9ff; // 颜色参数
 $red: #f56c6c;
 $radius: 4px; // 角度参数
+$roundRadius: 32px;
 $grey: #909399;
 .cot-button {
   height: $h;
@@ -67,39 +68,37 @@ $grey: #909399;
   box-shadow: 0 1px 0 fade-out(black, 0.95);
   transition: background 0.25s;
   box-sizing: border-box;
-  & + & {
-    margin-left: 8px; //  相邻组件间相隔8px
+  margin: 0 10px 8px 0;
+  @media (min-width: 500px) {
+    &:hover {
+      animation: button-hover 0.5s linear forwards;
+      &[disabled] {
+        animation: none;
+      }
+    }
   }
-  &:hover,
+
   &:focus {
     color: $blue;
     border-color: $blue;
-  }
-  &:focus {
+    box-shadow: 0px 0px 10px #ccc;
     outline: none;
   }
+
   &::-moz-focus-inner {
     border: 0;
   }
-  &.cot-theme-link {
-    border-color: transparent;
-    box-shadow: none;
-    color: $blue;
-    &:hover,
-    &:focus {
-      color: lighten($blue, 20%);
-      text-decoration: underline;
-    }
+
+  &.cot-round {
+    border-radius: $roundRadius;
   }
-  &.cot-theme-text {
-    border-color: transparent;
-    box-shadow: none;
-    color: inherit;
-    &:hover,
-    &:focus {
-      background: darken(white, 5%);
-    }
+  &[disabled] {
+    cursor: not-allowed;
+    color: #fff;
+    background-color: #ddd;
+    border: none;
   }
+  
   &.cot-size-big {
     font-size: 24px;
     height: 48px;
@@ -110,75 +109,33 @@ $grey: #909399;
     height: 20px;
     padding: 0 4px;
   }
-  &.cot-theme-button {
-    &.cot-level-main {
-      background: $blue;
-      color: white;
-      border-color: $blue;
-      &:hover,
-      &:focus {
-        background: darken($blue, 10%);
-        border-color: darken($blue, 10%);
-      }
-    }
-    &.cot-level-danger {
-      background: $red;
-      border-color: $red;
-      color: white;
-      &:hover,
-      &:focus {
-        background: darken($red, 10%);
-        border-color: darken($red, 10%);
-      }
-    }
+  
+  &.cot-level-primary {
+    color: #fff;
+    border: none;
+    background-color: #1976d2;
   }
-  &.cot-theme-link {
-    &.cot-level-danger {
-      color: $red;
-      &:hover,
-      &:focus {
-        color: darken($red, 10%);
-      }
-    }
+  &.cot-level-success {
+    color: #fff;
+    border: none;
+    background-color: #13ce66;
   }
-  &.cot-theme-text {
-    &.cot-level-main {
-      color: $blue;
-      &:hover,
-      &:focus {
-        color: darken($blue, 10%);
-      }
-    }
-    &.cot-level-danger {
-      color: $red;
-      &:hover,
-      &:focus {
-        color: darken($red, 10%);
-      }
-    }
+  &.cot-level-warning {
+    color: #fff;
+    border: none;
+    background-color: #ffc107;
   }
-   &.cot-theme-button {
-    &[disabled] {
-      cursor: not-allowed;
-      color: $grey;
-      border-color: $grey;
-      &:hover {
-        border-color: $grey;
-      }
-      //   pointer-events: none;
-    }
+  &.cot-level-error {
+    color: #fff;
+    border: none;
+    background-color: #ff4f57;
   }
-  &.cot-theme-link,
-  &.cot-theme-text {
-    &[disabled] {
-      cursor: not-allowed;
-      color: $grey;
-      &:hover {
-        text-decoration: none;
-        background-color: transparent;
-      }
-    }
+  &.cot-level-primary {
+    color: #fff;
+    border: none;
+    background-color: #1976d2;
   }
+
   > .cot-loadingIndicator {
     width: 14px;
     height: 14px;

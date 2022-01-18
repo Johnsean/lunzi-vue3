@@ -2,11 +2,9 @@
 支持 disabled
 </demo>
 <template>
-  <div>
-    <Button disabled>禁用普通按钮 </Button>
-    <Button theme="link" disabled>禁用链接按钮 </Button>
-    <Button theme="text" disabled>禁用文本按钮 </Button>
-  </div>
+  <Button size="big" disabled>disabled Button</Button>
+  <Button round disabled>disabled Button</Button>
+  <Button size="small" disabled>disabled Button</Button>
 </template>
 
 <script lang="ts">
