@@ -63,18 +63,16 @@ $text: #6f2e6a;
     color: $text;
     background-color: #fff;
     box-shadow: 0 5px 5px rgba(#333, 0.1);
-    > .logo {
+    > a.logo {
         max-width: 4em; 
         // max-width 随内容宽
         margin-right: auto;
-        > a {
-            text-decoration: none;
-            svg {
-                width: 42px;
-                height: 34px;
-                // margin-top:2px;
-                // background: inherit;
-            }
+        text-decoration: none;  
+        svg {
+            width: 42px;
+            height: 34px;
+            margin-top: 5.4px;
+            // background: inherit;
         }
     }
     > .menu {
