@@ -2,11 +2,14 @@
     <div class="cot-tabs">
         <div class="cot-tabs-nav" ref="containerRef">
             <div class="cot-tabs-nav-item" 
-                v-for="(t,index) in titles" :key="index"
-                :class = "{ selected: t === selected }"
-                @click="select(t)"
-                :ref="(el)=>{ if (t === selected ) selectedItem = el}">
-                    {{t}}
+                v-for="(CNode,index) in CNodes" :key="index"
+                :class="
+                    [CNode.props.title === selected ? 'selected' : ''] +
+                    [CNode.props.disabled === '' ? 'disabled' : '']
+                "
+                @click="select(CNode)"
+                :ref="(el)=>{ if (CNode.props.title === selected ) selectedItem = el}">
+                    {{CNode.props.title}}
             </div>
             <div class="cot-tabs-nav-indicator" ref="indicator"/>
         </div>
@@ -19,7 +22,7 @@
     </div>
 </template>
 <script lang="ts">
-import { computed,ref,onMounted,watchEffect } from 'vue'
+import { computed,ref,onMounted,watchEffect, Slot } from 'vue'
 import Tab from './Tab.vue'
 
 export default{
@@ -37,9 +40,9 @@ export default{
 
         onMounted(()=>{ // 挂载的时候确定下划线的长度
             watchEffect(()=>{
-                const { left: left1}   = (containerRef.value as HTMLDivElement).getBoundingClientRect()
-                const { width,left: left2 } = selectedItem.value.getBoundingClientRect()
-                const left: number = left2 -  left1
+                const { left: NavLeft }   = (containerRef.value as HTMLDivElement).getBoundingClientRect()
+                const { width,left: SelectedLeft } = selectedItem.value.getBoundingClientRect()
+                const left: number = SelectedLeft - NavLeft
 
                 indicator.value.style.width = width + 'px'
                 indicator.value.style.left = `${left}px`
@@ -48,27 +51,30 @@ export default{
             })
         })
 
-        const defaults = context.slots.default()  // tab节点 （获取插槽内容）
-        defaults.forEach((tag)=>{
-            // if (tag.type !== Tab){
+        const CNodes = context.slots.default()  // tab节点 （获取插槽结点）
+        CNodes.forEach((CNode)=>{
+            // if (CNode.type !== Tab){
            
            // @ts-ignore
-            if (tag.type.name !== Tab.name){ //生产环境
+            if (CNode.type.name !== Tab.name){ //生产环境
                 throw new Error('Tabs 子标签必须是 Tab')
             }
         })
 
-        const titles = defaults.map(tag=>{
-            return tag.props.title
-        })
-        const select  = (title: String)=>{
-            context.emit('update:selected',title)
-        }
-        const current = computed(()=>{
-            return defaults.find((tag) => tag.props.title === props.selected)
+        // 返回当前选中结点
+        const current = computed(()=>{  
+            return CNodes.find((CNode) => CNode.props.title === props.selected)
         })
 
-        return {defaults,titles,select,current,selectedItem,indicator,containerRef}
+        // 处理点击事件，当有disabled属性时不更新选中结点，否则选中点击结点
+        const select  = (CNode)=>{
+            if (CNode.props.disabled === "") {
+                return;
+            }
+            context.emit("update:selected", CNode.props.title);
+        }
+
+        return {CNodes,select,current,selectedItem,indicator,containerRef}
     }
 }
 </script>
@@ -84,9 +90,13 @@ $border-color: #d9d9d9;
     border-bottom: 1px solid $border-color;
     position: relative;
     &-item {
-      padding: 8px 0;
-      margin: 0 16px;
+      padding: 8px;
+      margin: 0 8px;
       cursor: pointer;
+      &.disabled {
+        color: #ccc;
+        cursor: not-allowed;
+      }
       &:first-child {
         margin-left: 0;
       }
@@ -101,11 +111,11 @@ $border-color: #d9d9d9;
       left: 0;
       bottom: -1px;
       width: 100px;
-      transition: all 250ms;
+      transition: all 0.25s cubic-bezier(1, 1.67, 0.21, 0.84);
     }
   }
   &-content {
-    padding: 8px 0;
+    padding: 20px 8px;
   }
 }
 </style>
