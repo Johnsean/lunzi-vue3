@@ -40,6 +40,7 @@ export default {
         [`cot-theme-${round ? "round" : "normal"}`]: round
       }
     })
+    
     return { classes }
   }
 }

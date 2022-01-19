@@ -26,6 +26,7 @@ export default {
   name: 'TabsDemo',
   components: { Demo },
   setup(){
+    // document.body.scrollTop = 0;
     return { TabsNormal,TabsDisabled, }
   }
 };

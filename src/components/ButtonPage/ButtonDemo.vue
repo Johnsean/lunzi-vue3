@@ -39,9 +39,12 @@ import ButtonDisabled from "./ButtonDemo/ButtonDisabled.vue"
 import ButtonLoading from "./ButtonDemo/ButtonLoading.vue"
 
 export default {
-    components: { Demo },
-    setup() {
-        return { ButtonNormal, ButtonSize, ButtonRound, ButtonDisabled, ButtonLoading }
-    }
+  components: { Demo },
+  setup() {
+    // console.log();
+    // console.log("-------------------------");
+    // document.body.scrollTop = 0;
+    return { ButtonNormal, ButtonSize, ButtonRound, ButtonDisabled, ButtonLoading }
+  }
 }
 </script>

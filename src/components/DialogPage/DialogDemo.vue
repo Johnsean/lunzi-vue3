@@ -51,15 +51,16 @@ import DialogBottom from "./DialogDemo/DialogBottom.vue";
 import DialogOverlay from "./DialogDemo/DialogOverlay.vue";
 
 export default {
-    components: { Demo },
-    setup() {
-      return {
-        DialogNormal,
-        DialogOnCode,      
-        DialogOverlay,
-        DialogTitle,
-        DialogBottom, 
-      }
+  components: { Demo },
+  setup() {
+    // document.body.scrollTop = 0;
+    return {
+      DialogNormal,
+      DialogOnCode,      
+      DialogOverlay,
+      DialogTitle,
+      DialogBottom, 
     }
+  }
 }
 </script>
