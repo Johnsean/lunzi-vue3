@@ -1,18 +1,18 @@
 <template>
-    <div>
-        <button 
-          class="cot-switch"
-          :class="{'cot-checked':value}" 
-          @click="toggle"
-          :disabled="loading ? true : disabled" >
-            <span><span class="cot-switch-loading" v-if="loading"></span></span>
-            <p v-if="value">on</p>
-            <p v-else>off</p>
-        </button>
-    </div>
+  <button
+    ref="switchRef"
+    class="cot-switch"
+    :class="{'cot-checked':value}" 
+    @click="toggle"
+    :disabled="loading ? true : disabled" >
+      <span><span class="cot-switch-loading" v-if="loading"></span></span>
+      <p v-if="value">on</p>
+      <p v-else>off</p>
+  </button>
 </template>
 
 <script lang="ts">
+import {ref,onMounted} from 'vue'
 export default {
   props:{
     value:Boolean,
@@ -26,11 +26,18 @@ export default {
     },
   },
   setup(props, context){
+    const switchRef = ref(null)
     const toggle=()=>{
       context.emit('update:value',!props.value)
     }
+
+    onMounted(()=>{
+      if (props.disabled){
+        switchRef.value.style.cursor = 'not-allowed'
+      }
+    })
     return {
-      toggle
+      toggle,switchRef
     }
   }
 }
@@ -47,7 +54,6 @@ export default {
   line-height: $h;
   vertical-align: middle;
   border: none;
-  margin-bottom: 8px;
   background-color: #bfbfbf;;
   border-radius: calc($h / 2);
   outline: none;
