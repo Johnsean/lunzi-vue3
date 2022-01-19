@@ -25,6 +25,7 @@
         </ul>
     </div>
 </template>
+
 <script lang="ts">
 import { inject, Ref } from 'vue'
 
@@ -44,6 +45,7 @@ export default {
     }
 }
 </script>
+
 <style lang="scss" scoped>
 $lightbgc: #e8cbc0;
 $deepbgc: #44295b;

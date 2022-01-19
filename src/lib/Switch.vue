@@ -11,8 +11,8 @@
         </button>
     </div>
 </template>
-<script lang="ts">
 
+<script lang="ts">
 export default {
   props:{
     value:Boolean,
@@ -35,6 +35,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss">
  $h: 22px;
  $h2: $h - 4px;

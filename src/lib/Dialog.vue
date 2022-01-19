@@ -21,9 +21,11 @@
     </teleport>
   </template>
 </template>
+
 <script lang="ts">
 import { computed } from "vue";
 import Button from "./Button.vue";
+
 export default {
   name: 'Dialog',
   props: {
@@ -99,6 +101,7 @@ export default {
   }
 };
 </script>
+
 <style lang="scss">
 $radius: 4px;
 $border-color: #d9d9d9;

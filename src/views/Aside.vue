@@ -49,8 +49,10 @@
     </aside>
   </transition>
 </template>
+
 <script lang="ts">
 import { inject, Ref } from "vue";
+
 export default {
   setup() {
     const asideVisible = inject<Ref<boolean>>("asideVisible");
@@ -58,6 +60,7 @@ export default {
   },
 };
 </script>
+
 <style lang="scss">
 $lightbgc: #e8cbc0;
 $deepbgc: #44295b;

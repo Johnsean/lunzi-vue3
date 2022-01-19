@@ -21,6 +21,7 @@
         />
     </div>
 </template>
+
 <script lang="ts">
 import { computed,ref,onMounted,watchEffect, Slot } from 'vue'
 import Tab from './Tab.vue'

@@ -7,16 +7,19 @@
       </p>
     </section>
     <Demo :component="ButtonNormal" />
+
     <section class="second-title">
       <h2>支持 size</h2>
       <p>使用<span>size</span>属性改变<span>Button</span>组件的大小</p>
     </section>
     <Demo :component="ButtonSize" />
+
     <section class="second-title">
       <h2>支持 round</h2>
       <p>使用<span>round</span>属性改变<span>Button</span>组件的形状</p>
     </section>
     <Demo :component="ButtonRound" />
+
     <section class="second-title">
       <h2>支持 disabled</h2>
       <p>
@@ -24,12 +27,14 @@
       </p>
     </section>
     <Demo :component="ButtonDisabled" />
+    
     <section class="second-title">
       <h2>支持 loading</h2>
       <p>使用<span>loading</span>属性表示<span>Button</span>组件正在加载</p>
     </section>
     <Demo :component="ButtonLoading" />
 </template>
+
 <script lang="ts">
 import Demo from "../Demo.vue"
 import ButtonNormal from "./ButtonDemo/ButtonNormal.vue"

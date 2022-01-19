@@ -8,6 +8,7 @@
       </p>
     </section>
     <Demo :component="SwitchNormal"></Demo>
+
     <section class="second-title">
       <h2>支持disabled属性</h2>
       <p>
@@ -15,6 +16,7 @@
       </p>
     </section>
     <Demo :component="SwitchDisabled"></Demo>
+    
     <section class="second-title">
       <h2>支持loading属性</h2>
       <p>
