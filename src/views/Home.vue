@@ -112,7 +112,7 @@ export default {
   }
 }
 .banner {
-  padding: 100px 0;
+  padding: 120px 0 80px;
   display: flex;
   justify-content: center;
   align-items: center;
