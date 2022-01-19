@@ -91,7 +91,7 @@ $grey: #909399;
     border: 0;
   }
 
-  &.cot-round {
+  &.cot-theme-round {
     border-radius: $roundRadius;
   }
   &[disabled] {
