@@ -10,4 +10,4 @@
 # git remote add origin  https://gitee.com/Jonhsean/lunzi-vue3.git &&
 # git push -f -u origin master &&
 # cd -
-# echo https://gitee.com/Jonhsean/lunzi-vue3/index.htm
+# echo https://gitee.com/Jonhsean/lunzi-vue3/index.html
