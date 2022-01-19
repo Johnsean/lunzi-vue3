@@ -17,7 +17,8 @@
 import Button from '../lib/Button.vue'
 
 import 'prismjs'
-import 'prismjs/themes/prism.css'
+// import 'prismjs/themes/prism.css'
+import '../assets/style/prism.css'
 import { computed, ref } from 'vue'
 
 const Prism = (window as any).Prism
@@ -32,7 +33,7 @@ export default {
       const html = computed(() => {
         return Prism.highlight(
           props.component.__sourceCode,
-          Prism.language-html,
+          Prism.languages.html,
           'html'
         )
       })
