@@ -1,11 +1,11 @@
 <demo>
-基本用法
+支持 title
 </demo>
 <template>
   <div>
-    <Button level="primary" @click="toggle">打开Dialog</Button>
-    <Dialog v-model:visible="showDialog">
-      <p>这是内容</p>    
+    <Button level="error" @click="toggle"> 打开Dialog有标题</Button>
+    <Dialog v-model:visible="showDialog" title="自定义标题">
+      <p>这是内容</p>
     </Dialog>
   </div>
 </template>

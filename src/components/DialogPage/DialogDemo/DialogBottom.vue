@@ -1,11 +1,15 @@
 <demo>
-基本用法
+支持 bottomBtn
 </demo>
 <template>
   <div>
-    <Button level="primary" @click="toggle">打开Dialog</Button>
-    <Dialog v-model:visible="showDialog">
-      <p>这是内容</p>    
+    <Button level="error" @click="toggle">打开Dialog有处理button</Button>
+    <Dialog
+      v-model:visible="showDialog"
+      bottomBtn
+      :ok="confirm"
+      :cancel="cancel" >
+      <p>这是内容</p>
     </Dialog>
   </div>
 </template>
@@ -21,9 +25,17 @@ export default {
     const toggle = () => { //控制对话框是否可见
       showDialog.value = !showDialog.value
     }
+     const confirm = () => {
+      return true
+    }
+    const cancel = () => {
+      return false
+    };
     return {
       showDialog,
       toggle,
+      confirm,
+      cancel
     }
   },
 }

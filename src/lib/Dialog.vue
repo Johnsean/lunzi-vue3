@@ -4,19 +4,17 @@
       <div class="cot-dialog-overlay" @click="onClickOverlay"></div>
       <div class="cot-dialog-wrapper" :style="styles">
         <div class="cot-dialog">
-          <header>
-            <slot name="title">{{title}}</slot>
-            <span class="cot-dialog-close" @click="close"></span>
+          <span class="cot-dialog-close" @click="close"></span>
+          <header v-if="showTitle">
+            <h1>{{ title }}</h1>
           </header>
           <main>
-            <slot name="content">
-              <p>1</p>
-              <p>2</p>
-            </slot>
+            <slot />
+            <slot name="content" />
           </main>
-          <footer>
-            <Button level="main" @click="ok" size="small">OK</Button>
-            <Button @click="cancel" size="small">Cancel</Button>
+          <footer v-if="bottomBtn">
+            <Button level="primary" @click="ok" >confirm</Button>
+            <Button @click="cancel" >Cancel</Button>
           </footer>
         </div>
       </div>
@@ -24,6 +22,7 @@
   </template>
 </template>
 <script lang="ts">
+import { computed } from "vue";
 import Button from "./Button.vue";
 export default {
   name: 'Dialog',
@@ -32,13 +31,17 @@ export default {
       type: Boolean,
       default: false,
     }, 
-    closeOnClickOverlay: {
+    bottomBtn: {
       type: Boolean,
       default: false,
     },
+    closeOnClickOverlay: {
+      type: Boolean,
+      default: true,
+    },
     title:{
       type:String,
-      default: '标题'
+      default: ''
     },
     width: {
       type: String,
@@ -55,11 +58,11 @@ export default {
     Button,
   },
   setup(props, context) {
-
     const styles = {
       minWidth: props.width,
       top: props.top
     }
+
     const close = () => {
       context.emit('update:visible',!props.visible)
     }
@@ -67,7 +70,14 @@ export default {
       if (props.closeOnClickOverlay) {
         close();
       }
-    };
+    }
+    const showTitle = computed(() => {
+      if (props.title == "") {
+        return false;
+      } else {
+        return true;
+      }
+    })
     const ok = () => {
       if (props.ok && props.ok() !== false) {  // 等价于props.ok?.() !==false
         close();
@@ -81,6 +91,7 @@ export default {
       styles, 
       close,
       onClickOverlay,
+      showTitle,
       ok,
       cancel
     }
@@ -91,10 +102,11 @@ export default {
 $radius: 4px;
 $border-color: #d9d9d9;
 .cot-dialog {
+  position: relative;
   background: white;
   border-radius: $radius;
-  box-shadow: 0 0 3px fade-out(black, 0.5);
-  // min-width: 15em;
+  box-shadow: 0 0 3px fade-out(#333, 0.5);
+  min-width: 18em;
   // max-width: 90%;
   &-overlay {
     position: fixed;
@@ -102,7 +114,7 @@ $border-color: #d9d9d9;
     left: 0;
     width: 100%;
     height: 100%;
-    background: fade_out(black, 0.5);
+    background: fade_out(#ddd, 0.3);
     z-index: 10;
   }
   &-wrapper {
@@ -122,9 +134,13 @@ $border-color: #d9d9d9;
     font-size: 20px;
     padding: 12px 16px;
     border-bottom: 1px solid $border-color;
+    > h1 {
+      font-size: 1em;
+    }
   }
   > main {
-    padding: 12px 16px;
+    min-height: 8em;
+    padding: 32px 16px 16px 20px;
   }
   > footer {
     border-top: 1px solid $border-color;
@@ -132,8 +148,10 @@ $border-color: #d9d9d9;
     text-align: right;
   }
   &-close {
-    position: relative;
+    position: absolute;
     display: inline-block;
+    top: 10px;
+    right: 10px;
     width: 32px;
     height: 32px;
     border-radius: 32px;
