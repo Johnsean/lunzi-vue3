@@ -11,11 +11,23 @@
 </template>
 
 <script lang="ts">
+import { onMounted } from "vue";
 import Topnav from '../components/Topnav.vue'
 import Aside from './Aside.vue'
+import { router } from "../router";
 
 export default {
-    components: { Topnav, Aside },
+  components: { Topnav, Aside },
+  setup() {
+    onMounted(() => {
+      let main = document.querySelector("main");
+      router.beforeEach(() => {
+        if(main){
+          main.scrollTop = 0;
+        }
+      })
+    })
+  },
 }
 </script>
 
