@@ -65,7 +65,7 @@ $aside-index : 10;
     // padding-left: 100px;
     background: #fff;
     @media (max-width: 500px) {
-      padding: 24px;
+      padding: 60px 30px;
     }
   }
 }
