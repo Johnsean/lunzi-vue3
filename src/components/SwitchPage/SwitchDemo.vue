@@ -24,6 +24,8 @@
       </p>
     </section>
     <Demo :component="SwitchLoading" />
+
+    <Attr :columns="columns" :data="data"></Attr>
   </div>
 </template>
 <script lang="ts">
@@ -33,11 +35,24 @@ import SwitchLoading from "./SwitchDemo/SwitchLoading.vue";
 
 import Demo from '../Demo.vue'
 
+import Attr from '../Attr.vue';
+import {ref} from 'vue';
+import {columns} from '../../lib/data';
+
 export default{
-    components:{ Demo },
-    setup() {
-        return { SwitchNormal, SwitchDisabled, SwitchLoading }
-    }
+  components:{ Demo, Attr },
+  setup() {
+    const data = ref([
+      {
+        params: 'value',
+        desc: '是否选中',
+        type: 'boolean',
+        select: 'false / true',
+        default: 'false',
+      }
+    ])
+    return { SwitchNormal, SwitchDisabled, SwitchLoading, data, columns }
+  }
 }
 </script>
 
