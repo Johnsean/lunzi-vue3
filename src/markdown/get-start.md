@@ -2,28 +2,49 @@
 
 请先[安装](/doc/install)本组件库。
 
-然后在你的代码中写入下面的代码
+## 引入 `cot-ui`
+
+#### 完整引入
 
 ```
-import {Button, Tabs, Switch, Dialog} from "cot-ui"
+    import 'cot-ui/dist/lib/cot.css'
+    import { createApp } from 'vue'
+    import App from './App.vue'
+    import { cotUI } from 'cot-ui'
+    
+    createApp(App)
+      .use(cotUI)
+      .mount('#app')
+```
+> 以上代码便完成了 cot-ui 的引入。需要注意的是，样式文件需要单独引入。
+
+#### 按需引入
+
+> 如果你只希望引入部分组件，比如 Button ，那么需要在 main.js 中写入以下内容：
+```
+    import 'cot-ui/dist/lib/cot.css'
+    import { createApp } from 'vue'
+    import { Button } from 'cot-ui'
+    import App from './App.vue'
+
+    createApp(App).use(Button).mount('#app')
 ```
 
-就可以使用我提供的组件了。
-
-## Vue 单文件组件
-
-代码示例：
-
+> 完整组件列表和引入方式
 ```
-<template>
-  <div>
-    <Button>按钮</Button>
-  </div>
-</template>
-<script>
-import {Button, Tabs, Switch, Dialog} from "cot-ui"
-export default {
-  components: {Button}
-}
-</script>
+    import App from './App.vue'
+    import { createApp } from 'vue'
+    import {
+        Button,
+        Switch,
+        Dialog,
+        Tabs,
+    } from 'cot-ui'
+
+    createApp(App)
+        .component('Button',Button)
+        .component('Switch',Switch)
+        .component('Dialog',Dialog)
+        .component('Tabs',Tabs)
 ```
+
