@@ -120,18 +120,19 @@ export default {
   color: #44295b;
   // background: rgb(202, 249, 234);
   > .actions{
+    margin-top: 20px;
     padding: 8px 4px;
     color: white;
     outline: none;
     a {
-      margin:0 8px;
-      background: #636fa4;
       display: inline-block;
-      $h: 28px;
+      $h: 32px;
       height: $h;
       line-height: $h;
-      border-radius: calc($h/2);
-      padding: 0 8px;
+      margin:0 8px;
+      padding: 0 16px;
+      background: #636fa4; 
+      border-radius: calc($h/2); 
     }
   }
 }
