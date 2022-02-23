@@ -11,9 +11,9 @@
 </template>
 
 <script lang="ts">
-import Dialog from "../../../lib/Dialog.vue"
-import Button from "../../../lib/Button.vue"
-import { ref } from "vue"
+import Dialog from '../../../lib/Dialog.vue'
+import Button from '../../../lib/Button.vue'
+import { ref } from 'vue'
 export default {
   components: { Dialog, Button },
   setup() {
@@ -21,6 +21,7 @@ export default {
     const toggle = () => { //控制对话框是否可见
       showDialog.value = !showDialog.value
     }
+    
     return {
       showDialog,
       toggle,

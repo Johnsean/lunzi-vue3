@@ -31,7 +31,7 @@
 <script lang="ts">
 import SwitchNormal from  './SwitchDemo/SwitchNormal.vue'
 import SwitchDisabled from  './SwitchDemo/SwitchDisabled.vue'
-import SwitchLoading from "./SwitchDemo/SwitchLoading.vue"
+import SwitchLoading from './SwitchDemo/SwitchLoading.vue'
 
 import Demo from '../Demo.vue'
 
@@ -65,6 +65,7 @@ export default{
         default: 'false',
       },
     ])
+
     return { SwitchNormal, SwitchDisabled, SwitchLoading, data, columns }
   }
 }

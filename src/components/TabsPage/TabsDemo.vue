@@ -22,7 +22,7 @@
 <script lang="ts">
 import Demo from '../Demo.vue'
 import TabsNormal from '../TabsPage/TabsDemo/TabsNormal.vue'
-import TabsDisabled from "./TabsDemo/TabsDisabled.vue"
+import TabsDisabled from './TabsDemo/TabsDisabled.vue'
 
 import Attr from '../Attr.vue'
 import {ref} from 'vue'
@@ -47,7 +47,7 @@ export default {
         select: 'disabled',
         default: 'false',
       },
-    ]);
+    ])
 
     return { TabsNormal, TabsDisabled, data, columns}
   }

@@ -46,11 +46,11 @@
 </template>
 <script lang="ts">
 import Demo from '../Demo.vue'
-import DialogNormal from "./DialogDemo/DialogNormal.vue"
-import DialogOnCode from "./DialogDemo/DialogOnCode.vue"
-import DialogTitle from "./DialogDemo/DialogTitle.vue";
-import DialogBottom from "./DialogDemo/DialogBottom.vue";
-import DialogOverlay from "./DialogDemo/DialogOverlay.vue";
+import DialogNormal from './DialogDemo/DialogNormal.vue'
+import DialogOnCode from './DialogDemo/DialogOnCode.vue'
+import DialogTitle from './DialogDemo/DialogTitle.vue'
+import DialogBottom from './DialogDemo/DialogBottom.vue'
+import DialogOverlay from './DialogDemo/DialogOverlay.vue'
 
 import Attr from '../Attr.vue'
 import {ref} from 'vue'
@@ -103,6 +103,7 @@ export default {
         default: '--',
       },
     ])
+
     return {
       DialogNormal,
       DialogOnCode,      

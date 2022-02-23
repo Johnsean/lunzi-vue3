@@ -23,8 +23,8 @@
 </template>
 
 <script lang="ts">
-import { computed } from "vue";
-import Button from "./Button.vue";
+import { computed } from 'vue'
+import Button from './Button.vue'
 
 export default {
   name: 'Dialog',
@@ -85,11 +85,12 @@ export default {
       if (props.ok && props.ok() !== false) {  // 等价于props.ok?.() !==false
         close();
       }
-    };
+    }
     const cancel = () => {
       props.cancel && props.cancel(); // 等价于props.cancel?.()
       close();
-    };
+    }
+
     return {
       styles, 
       close,
@@ -99,7 +100,7 @@ export default {
       cancel
     }
   }
-};
+}
 </script>
 
 <style lang="scss">

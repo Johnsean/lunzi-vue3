@@ -19,6 +19,7 @@ export default {
   components: { Tab, Tabs },
   setup(){
     const TabFlag = ref('导航1')
+    
     return {TabFlag}
   }
 }

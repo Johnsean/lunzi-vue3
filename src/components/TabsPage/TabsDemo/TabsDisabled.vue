@@ -10,16 +10,17 @@
 </template>
 
 <script lang="ts">
-import Tabs from "../../../lib/Tabs.vue";
-import Tab from "../../../lib/Tab.vue";
-import { ref } from "vue";
+import Tabs from "../../../lib/Tabs.vue"
+import Tab from "../../../lib/Tab.vue"
+import { ref } from "vue"
 export default {
   components: {
     Tabs,
     Tab,
   },
   setup() {
-    const TabFlag = ref("导航1");
+    const TabFlag = ref("导航1")
+    
     return {
       TabFlag,
     }

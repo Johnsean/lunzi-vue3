@@ -38,16 +38,17 @@
 </template>
 
 <script lang="ts">
-import Demo from "../Demo.vue"
-import ButtonNormal from "./ButtonDemo/ButtonNormal.vue"
-import ButtonSize from "./ButtonDemo/ButtonSize.vue"
-import ButtonRound from "./ButtonDemo/ButtonRound.vue"
-import ButtonDisabled from "./ButtonDemo/ButtonDisabled.vue"
-import ButtonLoading from "./ButtonDemo/ButtonLoading.vue"
+import Demo from '../Demo.vue'
+import ButtonNormal from './ButtonDemo/ButtonNormal.vue'
+import ButtonSize from './ButtonDemo/ButtonSize.vue'
+import ButtonRound from './ButtonDemo/ButtonRound.vue'
+import ButtonDisabled from './ButtonDemo/ButtonDisabled.vue'
+import ButtonLoading from './ButtonDemo/ButtonLoading.vue'
 
 import Attr from '../Attr.vue'
 import {ref} from 'vue'
 import {columns} from '../../lib/data'
+
 export default {
   components: { Demo, Attr },
   setup() {
@@ -88,6 +89,7 @@ export default {
         default: 'false',
       }
     ])
+    
     return { ButtonNormal, ButtonSize, ButtonRound, ButtonDisabled, ButtonLoading, columns, data }
   }
 }
