@@ -33,10 +33,6 @@ export default {
       type: Boolean,
       default: false,
     }, 
-    bottomBtn: {
-      type: Boolean,
-      default: false,
-    },
     closeOnClickOverlay: {
       type: Boolean,
       default: true,
@@ -44,6 +40,10 @@ export default {
     title:{
       type:String,
       default: ''
+    },
+    bottomBtn: {
+      type: Boolean,
+      default: false,
     },
     width: {
       type: String,

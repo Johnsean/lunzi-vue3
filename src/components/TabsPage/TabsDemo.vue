@@ -1,5 +1,5 @@
 <template>
-  <h1>Tabs示例</h1>
+  <h1 class="first-title">Tabs示例</h1>
   <section class="second-title">
     <h2>基础用法</h2>
     <p>

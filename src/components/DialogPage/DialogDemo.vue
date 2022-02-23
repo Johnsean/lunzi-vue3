@@ -88,6 +88,20 @@ export default {
         select: 'bottomBtn',
         default: 'false',
       },
+       {
+        params: 'width',
+        desc: '宽度',
+        type: 'string',
+        select: '0%~100%',
+        default: '50%',
+      },
+      {
+        params: 'top',
+        desc: '顶部距离',
+        type: 'string',
+        select: '数字+px',
+        default: '100px',
+      },
       {
         params: 'ok',
         desc: '确认触发函数',
