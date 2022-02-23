@@ -33,6 +33,8 @@
       <p>使用<span>loading</span>属性表示<span>Button</span>组件正在加载</p>
     </section>
     <Demo :component="ButtonLoading" />
+
+    <Attr :columns="columns" :data="data"/>
 </template>
 
 <script lang="ts">
@@ -43,13 +45,50 @@ import ButtonRound from "./ButtonDemo/ButtonRound.vue"
 import ButtonDisabled from "./ButtonDemo/ButtonDisabled.vue"
 import ButtonLoading from "./ButtonDemo/ButtonLoading.vue"
 
+import Attr from '../Attr.vue'
+import {ref} from 'vue'
+import {columns} from '../../lib/data'
 export default {
-  components: { Demo },
+  components: { Demo, Attr },
   setup() {
-    // console.log();
-    // console.log("-------------------------");
-    // document.body.scrollTop = 0;
-    return { ButtonNormal, ButtonSize, ButtonRound, ButtonDisabled, ButtonLoading }
+    const data = ref([
+      {
+        params: 'level',
+        desc: '按钮类型',
+        type: 'string',
+        select: 'primary / success / warning / error',
+        default: 'normal',
+      },
+      {
+        params: 'size',
+        desc: '按钮大小',
+        type: 'string',
+        select: 'small / normal / big',
+        default: 'normal',
+      },      
+      {
+        params: 'round',
+        desc: '改变按钮形状',
+        type: 'boolean',
+        select: 'round',
+        default: 'false',
+      }, 
+      {
+        params: 'disabled',
+        desc: '按钮失效状态',
+        type: 'boolean',
+        select: 'disabled',
+        default: 'false',
+      },
+      {
+        params: 'loading',
+        desc: '按钮载入状态',
+        type: 'boolean',
+        select: 'loading',
+        default: 'false',
+      }
+    ])
+    return { ButtonNormal, ButtonSize, ButtonRound, ButtonDisabled, ButtonLoading, columns, data }
   }
 }
 </script>

@@ -1,15 +1,15 @@
 <template>
-  <div class="z-attr">
+  <div class="c-attr">
     <h2>Attributes</h2>
     <table class="attr-table">
       <thead>
         <tr>
-          <th class="z-attr-title" v-for="(item,index) in columns" :key="index">{{ item.title }}</th>
+          <th class="c-attr-title" v-for="(item,index) in columns" :key="index">{{ item.title }}</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item,index) in data" :key="index">
-          <td class="z-attr-title td" v-for="(value,key) in item" :key="key">{{ value }}</td>
+        <tr v-for="item in data" :key="item">
+          <td class="c-attr-title td" v-for="(value,key) in item" :key="key">{{ value }}</td>
         </tr>
       </tbody>
     </table>
@@ -31,7 +31,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.z-attr {
+.c-attr {
   width: 100%;
   overflow-x: auto;
   h2 {
@@ -48,7 +48,7 @@ export default {
     margin-bottom: 45px;
     line-height: 1.5em;
   }
-  .z-attr-title {
+  .c-attr-title {
     text-align: left;
     white-space: nowrap;
     color: #909399;
@@ -59,6 +59,7 @@ export default {
   }
   .td {
     color: #606266;
+    font-size: 14px;
   }
 }
 </style>

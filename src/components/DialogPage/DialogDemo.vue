@@ -41,6 +41,8 @@
     <p>引入<span>openDialog</span>模块创建一个<span>Dialog</span>组件</p>
   </section>
   <Demo :component="DialogOnCode" />
+
+  <Attr :columns="columns" :data="data"/>
 </template>
 <script lang="ts">
 import Demo from '../Demo.vue'
@@ -50,16 +52,65 @@ import DialogTitle from "./DialogDemo/DialogTitle.vue";
 import DialogBottom from "./DialogDemo/DialogBottom.vue";
 import DialogOverlay from "./DialogDemo/DialogOverlay.vue";
 
+import Attr from '../Attr.vue'
+import {ref} from 'vue'
+import {columns} from '../../lib/data'
+
 export default {
-  components: { Demo },
+  components: { Demo, Attr },
   setup() {
-    // document.body.scrollTop = 0;
+    const data = ref([
+      {
+        params: 'visible',
+        desc: '是否展示',
+        type: 'boolean',
+        select: 'true / false',
+        default: 'false',
+      },
+      {
+        params: 'closeOnClickOverlay',
+        desc: '是否点击遮罩层关闭弹出框',
+        type: 'boolean',
+        select: 'true / false',
+        default: 'true',
+      },
+      {
+        params: 'title',
+        desc: '打开自定义标题',
+        type: 'string',
+        select: '自定义标题',
+        default: 'default',
+      },
+      {
+        params: 'bottomBtn',
+        desc: '显示处理功能按钮',
+        type: 'boolean',
+        select: 'bottomBtn',
+        default: 'false',
+      },
+      {
+        params: 'ok',
+        desc: '确认触发函数',
+        type: 'function',
+        select: '()=>{}',
+        default: '--',
+      },
+      {
+        params: 'cancel',
+        desc: '取消触发函数',
+        type: 'function',
+        select: '()=>{}',
+        default: '--',
+      },
+    ])
     return {
       DialogNormal,
       DialogOnCode,      
       DialogOverlay,
       DialogTitle,
-      DialogBottom, 
+      DialogBottom,
+      data, 
+      columns, 
     }
   }
 }
