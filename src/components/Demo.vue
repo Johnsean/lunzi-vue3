@@ -62,7 +62,6 @@ $border-color: #333;
     border-top: 1px solid $border-color;
   }
   &-code {
-    padding: 8px 16px;
     border-top: 1px dashed $border-color;
     overflow: auto;
     > pre {

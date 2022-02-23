@@ -119,8 +119,8 @@ $border-color: #d9d9d9;
     left: 0;
     width: 100%;
     height: 100%;
-    background: fade_out(#ddd, 0.3);
-    z-index: 10;
+    background: fade_out(rgb(17,17,18), 0.3);
+    z-index: 30;
   }
   &-wrapper {
     min-width: 50%;
@@ -130,7 +130,7 @@ $border-color: #d9d9d9;
     // transform: translate(-50%, -50%);
     top: 0;
     transform: translateX(-50%);
-    z-index: 11;
+    z-index: 31;
   }
   > header {
     display: flex;
@@ -149,7 +149,7 @@ $border-color: #d9d9d9;
   }
   > footer {
     border-top: 1px solid $border-color;
-    padding: 12px 16px;
+    padding: 12px 2px;
     text-align: right;
   }
   &-close {

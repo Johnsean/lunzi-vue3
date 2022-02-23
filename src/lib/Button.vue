@@ -33,13 +33,10 @@ export default {
   },
   setup(props) {
     const {round, size, level} = props
-    const classes = computed(()=>{
-      return {
-        [`cot-size-${size}`]: size,
-        [`cot-level-${level}`]: level,
-        [`cot-theme-${round ? "round" : "normal"}`]: round
-      }
-    })
+    const classes = computed(()=>
+        `cot-size-${size}  cot-level-${level}
+         cot-theme-${round ? "round" : "normal"}
+        `)
     
     return { classes }
   }
