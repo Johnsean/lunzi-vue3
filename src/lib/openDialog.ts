@@ -24,7 +24,7 @@ export const openDialog = (options:any) => {
           ok,
           cancel,
         },
-        { content }
+        { content:() => content }
       );
     },
   });
