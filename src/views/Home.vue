@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="home">
     <div class="topnavAndBanner">
       <Topnav/>
       <div class="banner">
         <h1>Cot UI</h1>
-        <h2>基于 Vue 3 和 TypeScript 的 UI 框架</h2>
+        <h2>基于 Vue 3 <span>和 TypeScript </span>的 UI 框架</h2>
         <p class="actions">
           <a target="_blank" href="https://gitee.com/Jonhsean/lunzi-vue3">GitHub</a>
           <router-link to="/doc">开始</router-link> 
@@ -18,7 +18,7 @@
             <use xlink:href="#icon-Vue"></use>
           </svg>
           <h3>基于 Vue 3</h3>
-          <p>骄傲地使用了 Vue 3 Composition API</p>
+          <p>使用了 Vue 3 Composition API</p>
         </li>
         <li>
           <svg class="icon">
@@ -134,6 +134,18 @@ export default {
       background: #636fa4; 
       border-radius: calc($h/2); 
     }
+  }
+  @media  screen and (max-width: 420px) {
+    span{
+      display: none;
+    }
+  }
+}
+.home{
+  height: 100vh;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 </style>
