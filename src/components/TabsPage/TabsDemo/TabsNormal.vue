@@ -10,8 +10,7 @@
 </template>
 
 <script lang="ts">
-import Tab from '../../../lib/Tab.vue'
-import Tabs from '../../../lib/Tabs.vue'
+import {Tab,Tabs} from '../../../lib/index'
 import { ref } from 'vue'
 
 export default {
