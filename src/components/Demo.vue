@@ -8,7 +8,7 @@
       <Button @click="toggleCode"> {{ codeVisible === true ? '隐藏代码' : '显示代码' }} </Button>
     </div>
     <div :class="'demo-code' + [codeVisible ? ' code-show ' : ' code-hidden '] ">
-      <HighLightCode :code-string="codeString" code-type="html"/>
+      <HighLightCode :codeString="component.__sourceCode" codeType="html"/>
     </div>
   </div>
 </template>
@@ -16,7 +16,7 @@
 <script lang="ts">
 import Button from '../lib/Button.vue'
 
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import HighLightCode from './HighLightCode.vue'
 
 export default {
@@ -25,11 +25,10 @@ export default {
       HighLightCode,
     },
     props: { component: Object },
-    setup(props) {
+    setup() {
       const codeVisible = ref(false)
       const toggleCode = () => { codeVisible.value = !codeVisible.value }
-      const codeString = computed(() => props.component.__sourceCode)
-      return { codeString, codeVisible, toggleCode}
+      return { codeVisible, toggleCode}
     }
 }
 </script>
