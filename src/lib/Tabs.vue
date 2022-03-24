@@ -48,7 +48,7 @@ export default{
                 indicator.value.style.width = width + 'px'
                 indicator.value.style.left = `${left}px`
             },{ // 解决异步
-                flush: "sync", //效果更新需要缓冲时间
+                flush: "post", //效果更新需要缓冲时间
             })
         })
 

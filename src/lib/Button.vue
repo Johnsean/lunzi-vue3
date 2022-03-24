@@ -91,12 +91,7 @@ $grey: #909399;
   &.cot-theme-round {
     border-radius: $roundRadius;
   }
-  &[disabled] {
-    cursor: not-allowed;
-    color: #fff;
-    background-color: #ddd;
-    border: none;
-  }
+
   
   &.cot-size-big {
     font-size: 24px;
@@ -135,6 +130,13 @@ $grey: #909399;
     background-color: #1976d2;
   }
 
+  &[disabled] {
+    cursor: not-allowed;
+    color: #fff;
+    background-color: #ddd;
+    border: none;
+  }
+  
   > .cot-loadingIndicator {
     width: 14px;
     height: 14px;
