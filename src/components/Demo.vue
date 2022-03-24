@@ -8,7 +8,7 @@
       <Button @click="toggleCode"> {{ codeVisible === true ? '隐藏代码' : '显示代码' }} </Button>
     </div>
     <div :class="'demo-code' + [codeVisible ? ' code-show ' : ' code-hidden '] ">
-      <pre class="language-html" v-html="html" />
+      <HighLightCode :code-string="codeString" code-type="html"/>
     </div>
   </div>
 </template>
@@ -16,28 +16,20 @@
 <script lang="ts">
 import Button from '../lib/Button.vue'
 
-import 'prismjs'
-// import 'prismjs/themes/prism.css'
-import '../assets/style/prism.css'
 import { computed, ref } from 'vue'
+import HighLightCode from './HighLightCode.vue'
 
-const Prism = (window as any).Prism
 export default {
     components: { 
       Button,
+      HighLightCode,
     },
     props: { component: Object },
     setup(props) {
       const codeVisible = ref(false)
       const toggleCode = () => { codeVisible.value = !codeVisible.value }
-      const html = computed(() => {
-        return Prism.highlight(
-          props.component.__sourceCode,
-          Prism.languages.html,
-          'html'
-        )
-      })
-      return { Prism, html, codeVisible, toggleCode}
+      const codeString = computed(() => props.component.__sourceCode)
+      return { codeString, codeVisible, toggleCode}
     }
 }
 </script>
