@@ -32,6 +32,7 @@
   </section>
   <Demo :component="InputError"/>
   
+  <Attr :columns="columns" :data="data"/>
 </template>
 <script lang="ts">
 import Demo from "../Demo.vue";
@@ -39,14 +40,59 @@ import InputValue from "./InputDemo/InputValue.vue";
 import InputError from "./InputDemo/InputError.vue";
 import InputDisabled from "./InputDemo/InputDisabled.vue";
 import InputReadOnly from "./InputDemo/InputReadOnly.vue";
+
+import Attr from '../Attr.vue'
+import {ref} from 'vue'
+import {columns} from '../../lib/data'
+
 export default {
-  components: { Demo },
+  components: { Demo, Attr },
   setup() {
+    const data = ref([
+      {
+        params: 'value',
+        desc: '输入展示实时值',
+        type: 'string',
+        select: '-',
+        default: "",
+      },
+      {
+        params: 'modelValue',
+        desc: '失去焦点时展示改变值',
+        type: 'string',
+        select: '-',
+        default: "",
+      },
+      {
+        params: 'disabled',
+        desc: '是否禁用',
+        type: 'boolean',
+        select: 'true/ false',
+        default: 'false',
+      },
+      {
+        params: 'readonly',
+        desc: '是否只读',
+        type: 'boolean',
+        select: 'true/ false',
+        default: 'false',
+      },
+       {
+        params: 'error',
+        desc: '展示错误状态',
+        type: 'string',
+        select: '-',
+        default: '-',
+      }
+    ])
+
     return {
       InputValue,
       InputError,
       InputDisabled,
       InputReadOnly,
+      data,
+      columns
     };
   },
 };
