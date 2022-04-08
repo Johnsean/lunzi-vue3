@@ -3,6 +3,7 @@ import Button from "./Button.vue";
 import Switch from "./Switch.vue";
 import Tabs from "./Tabs.vue";
 import Tab from "./Tab.vue";
+import Input from "./Input.vue";
 import { ComponentOptions } from "vue";
 
 export default {
@@ -13,5 +14,6 @@ export default {
     app.component("Dialog", Dialog);
     app.component("Tab", Tab);
     app.component("Tabs", Tabs);
+    app.component("Input", Input);
   },
 };
