@@ -8,7 +8,7 @@ import resolve from 'rollup-plugin-node-resolve'
 
 export default {
   input: 'src/lib/index.ts',
-  output: [{
+  output: {
     globals: {
       vue: 'Vue'
     },
@@ -16,12 +16,7 @@ export default {
     file: 'dist/lib/cot.js',
     format: 'umd',
     plugins: [terser()]
-  },{
-    name: 'Cot',
-    file: 'dist/lib/cot.esm.js',
-    format: 'es',
-    plugins: [terser()]
-  }],
+  },
   plugins: [
     scss({ include: /\.scss$/, sass: dartSass }),
     esbuild({
