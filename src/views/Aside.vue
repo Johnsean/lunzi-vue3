@@ -62,9 +62,9 @@ export default {
 </script>
 
 <style lang="scss">
-$lightbgc: #e8cbc0;
-$deepbgc: #44295b;
-$text: #6f2e6a;
+$lightbgc: hsl(16, 86%, 80%);   //选中后背景色
+$deepbgc: #c284f8;
+$text: #011;
 aside {
   position: absolute;
   top: 0;
