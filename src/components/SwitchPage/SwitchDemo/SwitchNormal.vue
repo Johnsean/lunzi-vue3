@@ -1,5 +1,5 @@
 <demo>
-常规用法
+设置初始状态
 </demo>
 <template>
     <Switch  v-model:value="bool"/>

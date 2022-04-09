@@ -10,7 +10,7 @@
     <Demo :component="SwitchNormal"></Demo>
 
     <section class="second-title">
-      <h2>支持disabled属性</h2>
+      <h2>禁用开关</h2>
       <p>
         在<span>Switch</span>组件中添加<span>disabled</span>属性，以此来<span>禁用Switch</span>组件
       </p>
@@ -18,12 +18,20 @@
     <Demo :component="SwitchDisabled"></Demo>
     
     <section class="second-title">
-      <h2>支持loading属性</h2>
+      <h2>加载中</h2>
       <p>
         在<span>Switch</span>组件中添加<span>loading</span>属性，显示<span>Switch</span>组件加载状态
       </p>
     </section>
     <Demo :component="SwitchLoading" />
+
+    <section class="second-title">
+      <h2>文字状态</h2>
+      <p>
+        在<span>Switch</span>组件中添加<span>myoff</span>属性，组件带有文字提示
+      </p>
+    </section>
+    <Demo :component="SwitchOff" />
 
     <Attr :columns="columns" :data="data"/>
   </div>
@@ -32,6 +40,7 @@
 import SwitchNormal from  './SwitchDemo/SwitchNormal.vue'
 import SwitchDisabled from  './SwitchDemo/SwitchDisabled.vue'
 import SwitchLoading from './SwitchDemo/SwitchLoading.vue'
+import SwitchOff from './SwitchDemo/SwitchOff.vue'
 
 import Demo from '../Demo.vue'
 
@@ -64,9 +73,16 @@ export default{
         select: 'false / true',
         default: 'false',
       },
+      {
+        params: 'myoff',
+        desc: '是否有文字提示',
+        type: 'boolean',
+        select: 'false / true',
+        default: 'false',
+      }
     ])
 
-    return { SwitchNormal, SwitchDisabled, SwitchLoading, data, columns }
+    return { SwitchNormal, SwitchDisabled, SwitchLoading, SwitchOff,data, columns }
   }
 }
 </script>
