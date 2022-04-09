@@ -3,7 +3,7 @@
 </demo>
 <template>
   <div>
-    <Button level="primary" @click="toggle">打开Dialog</Button>
+    <Button @click="toggle">点击打开Dialog</Button>
     <Dialog v-model:visible="showDialog">
       <p>这是内容</p>    
     </Dialog>
