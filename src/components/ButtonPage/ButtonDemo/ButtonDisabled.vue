@@ -3,7 +3,7 @@
 </demo>
 <template>
   <Button size="big" disabled>disabled Button</Button>
-  <Button round disabled>disabled Button</Button>
+  <Button disabled>disabled Button</Button>
   <Button size="small" disabled>disabled Button</Button>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-    <button class="cot-button" :class="classes"  :disabled="loading ? true : disabled">
+    <button class="cot-button" :class="classes"  :disabled="disabled">
         <span v-if="loading" class="cot-loadingIndicator"></span>
         <slot/>
     </button>
