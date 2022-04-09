@@ -1,4 +1,4 @@
-import {createRouter, createWebHistory} from 'vue-router'
+import {createRouter, createWebHashHistory} from 'vue-router'
 import Home from './views/Home.vue'
 import Doc from './views/Documentation.vue'
 import SwitchDemo from './components/SwitchPage/SwitchDemo.vue'
@@ -18,7 +18,7 @@ const md = (string) => h(Markdown, {content: string, key: string})
 
 export const router = createRouter({
   //hash
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes: [
     { 
       path: '/', component: Home 

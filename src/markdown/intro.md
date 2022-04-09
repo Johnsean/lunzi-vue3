@@ -12,7 +12,7 @@ Cot UI 是一款基于 Vue 3 和 TypeScript 的 UI 组件库。
 
 > #### 版本:**_1.1.0_**
 >
-> - 更新内容:<a href='/doc/input'>添加 input 组件</a>
+> - 更新内容:<a href='#/doc/input'>添加 input 组件</a>
 ---
 
 > #### 版本:**_1.0.0_**
@@ -22,5 +22,5 @@ Cot UI 是一款基于 Vue 3 和 TypeScript 的 UI 组件库。
 ---
 
 <div style='display:flex;justify-content:space-between;margin:20px 0 '>
-<div>下一节：<a href='/doc/install'>安装</a></div>  
+<div>下一节：<a href='#/doc/install'>安装</a></div>  
 </div>
