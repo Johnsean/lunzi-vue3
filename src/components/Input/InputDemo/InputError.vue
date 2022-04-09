@@ -3,7 +3,7 @@
 </demo>
 <template>
   <div>
-    <Input value="error" v-model:error="errorMessage"></Input>
+    <Input :error="errorMessage"></Input>
   </div>
 </template>
 <script lang="ts">
