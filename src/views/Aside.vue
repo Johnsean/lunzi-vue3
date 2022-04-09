@@ -62,7 +62,7 @@ export default {
 </script>
 
 <style lang="scss">
-$lightbgc: hsl(16, 86%, 80%);   //选中后背景色
+$lightbgc: #4ea5f7bb;   //选中后背景色
 $deepbgc: #c284f8;
 $text: #011;
 aside {

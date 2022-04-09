@@ -51,13 +51,13 @@ export default {
   background: #e8cbc0; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     145deg,
-    #e8cbc0,
-    #636fa4
+    #bee7cf,
+    #4f62ce
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     145deg,
-  #e8cbc0,
-  #636fa4
+  #bee7cf,
+  #4f62ce
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   
   clip-path: ellipse(80% 60% at 50% 40%); // 使用圆弧
@@ -86,7 +86,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
     > li {
-      color: #6f486b;
+      color: #000;
       margin: 16px 0;
       display: grid;
       justify-content: start;
@@ -117,12 +117,12 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: #44295b;
-  // background: rgb(202, 249, 234);
+  color: rgba(255, 255, 255, 0.842);
+  // background: rgb(202, 249, 234)44295b;
   > .actions{
     margin-top: 20px;
     padding: 8px 4px;
-    color: white;
+    color: rgb(8, 8, 8);
     outline: none;
     a {
       display: inline-block;
@@ -131,7 +131,7 @@ export default {
       line-height: $h;
       margin:0 8px;
       padding: 0 16px;
-      background: #636fa4; 
+      background: rgba(252, 243, 243, 0.945); 
       border-radius: calc($h/2); 
     }
   }

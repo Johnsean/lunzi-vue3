@@ -84,6 +84,7 @@ $text: #6f2e6a;
             margin: 10px 1em;
             > a {
                 text-decoration: none;
+                color:#4f62ce;
                 &:hover {
                 color: #be3765;
                 border-bottom: none;
