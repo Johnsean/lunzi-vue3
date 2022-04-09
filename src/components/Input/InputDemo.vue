@@ -3,7 +3,7 @@
   
   <section class="second-title">
     <h2>双向绑定</h2>
-    <p>使用<span>value</span>绑定一个<span>String</span>类型的变量到<span>Input</span>组件</p>
+    <p>使用<span>value</span>属性绑定一个<span>String</span>类型的变量到<span>Input</span>组件</p>
   </section>
   <Demo :component="InputValue"/>
 

@@ -3,7 +3,8 @@
 </demo>
 <template>
   <div>
-    <Input v-model:value="val"></Input> {{val}}
+    <Input v-model:value="val"></Input> 
+     <div>{{val}}</div>
   </div>
 </template>
 <script lang="ts">

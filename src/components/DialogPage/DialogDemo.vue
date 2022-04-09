@@ -3,7 +3,7 @@
   <section class="second-title">
     <h2>基础用法</h2>
     <p>
-      使用<span>v-model</span>绑定一个<span>Boolean</span>类型的变量到<span>Dialog</span>组件
+      使用<span>visible</span>属性，控制是否展示<span>Dialog</span>组件
     </p>
   </section>
   <Demo :component="DialogNormal" />

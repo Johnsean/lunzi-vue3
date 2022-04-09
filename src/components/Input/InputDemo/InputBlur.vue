@@ -5,10 +5,10 @@
   <div>
     <Input v-model:value="val" v-model="blurval"></Input>   
     <div class="showValue">
-      <p>实时val：
+      <p>实时值val：
           <span class="card">{{ val }}</span>
       </p>
-      <p>失焦更新blurval：
+      <p>失焦更新值blurval ：
         <span class="card">{{ blurval }}</span>
       </p>
     </div>
