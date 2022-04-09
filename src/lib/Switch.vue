@@ -2,12 +2,14 @@
   <button
     ref="switchRef"
     class="cot-switch"
-    :class="{'cot-checked':value}" 
+    :class="{'cot-checked':value}"
     @click="toggle"
     :disabled="loading ? true : disabled" >
       <span><span class="cot-switch-loading" v-if="loading"></span></span>
-      <p v-if="value">on</p>
-      <p v-else>off</p>
+      <p v-show="myoff">
+        <span v-if="value">on</span>
+        <span v-else>off</span>
+      </p>
   </button>
 </template>
 
@@ -15,7 +17,10 @@
 import {ref,onMounted} from 'vue'
 export default {
   props:{
-    value:Boolean,
+    value:{ 
+      type:Boolean,
+      default: false
+    },
     disabled: {
       type:Boolean,
       default: false
@@ -24,6 +29,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    myoff:{
+      type:Boolean,
+      default: false
+    }
   },
   setup(props, context){
     const switchRef = ref(null)
