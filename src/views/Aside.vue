@@ -100,8 +100,8 @@ aside {
         }
       }
       .router-link-active {
-        background: $lightbgc;
-        color: #fff;
+        // background: $lightbgc;
+        color: $deepbgc;
         border-right: 3px solid $deepbgc;
         @media (min-width: 500px) {
           border-right: none;
