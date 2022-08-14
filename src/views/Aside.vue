@@ -30,13 +30,14 @@
         <li>
         <router-link to="/doc/input">Input 组件</router-link>
         </li>
-        <!-- <li>
-            <router-link to="/doc/icon">Icon 组件</router-link>
-            </li>
         <li>
-        <router-link to="/doc/tree">Tree 组件</router-link>
+        <router-link to="/doc/trees">Tree 组件</router-link>
         </li>
+        ---------------------------------------------------
         <li>
+          <a href="javascript:(0)">后续开发中...</a>
+        </li>
+        <!-- <li>
         <router-link to="/doc/table">Table 组件</router-link>
         </li>
         <li>
@@ -44,6 +45,9 @@
         </li>
         <li>
         <router-link to="/doc/form">Form 组件</router-link>
+        </li>
+        <li>
+          <router-link to="/doc/icon">Icon 组件</router-link>
         </li> -->
       </ol>
     </aside>
