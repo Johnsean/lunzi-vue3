@@ -5,7 +5,7 @@
           <svg class="icon" aria-hidden="true" v-show="item.children" :class="item.isShow?'ro90deg':'normal'">
               <use xlink:href="#icon-trees"></use>
           </svg>
-          <input type="checkbox" @click.stop="cancel">
+          <input type="checkbox" v-if="isChecked" @click.stop="cancel" >
           <span>{{ item.label }}</span>
       </div>
       <transition name="slide-fade">
@@ -32,6 +32,10 @@ export default {
       required: true,
       default: [],
     },
+    isChecked:{
+      type:Boolean,
+      default:false
+    }
   },
   setup(props, context) {
     const myList = computed(() =>
@@ -39,7 +43,7 @@ export default {
     );
 
     const cancel = (e)=>{
-      console.log(e)
+      console.log(e.target.parentElement)
     }
     return { myList, cancel };
   },
@@ -50,10 +54,13 @@ export default {
 .list-item{
   padding: 4px;
 }
-
+.item-name {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+}
 input[type="checkbox"]{
-  margin: auto 8px;
-
+  margin: auto 4px;
 }
 
 /* 展开 */
