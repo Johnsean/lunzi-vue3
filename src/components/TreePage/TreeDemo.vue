@@ -1,13 +1,12 @@
 <template>
-  <h1 class="first-title">Tree示例</h1>
+  <h1 class="first-title">Tabs示例</h1>
   <section class="second-title">
     <h2>基础用法</h2>
     <p>
-      使用<span>selected</span>属性,指定展示的默认<span>子Tab</span>
+      使用<span> data </span>属性,传入树形结构的<span>各个节点</span>
     </p>
   </section>
-  <!-- <Demo :component="TreeDemo"/> -->
- 
+  <Demo :component="TreeNormal"/>
 
 
 
@@ -16,32 +15,48 @@
 
 <script lang="ts">
 import Demo from '../Demo.vue'
+import TreeNormal from './TreeDemo/TreeNomal.vue'
+
 import Attr from '../Attr.vue'
 import {ref} from 'vue'
 import {columns} from '../../lib/data'
 
 export default {
   name: 'TreeDemo',
-  components: { Demo, Attr },
+  components: { Demo, Attr, TreeNormal },
   setup(){
     const data = ref([
       {        
-        params: 'selected',
-        desc: '默认显示的子标签名',
-        type: 'string',
-        select: '子标签title值',
-        default: '导航1', 
+        params: 'data',
+        desc: '展示数据',
+        type: 'array',
+        select: '---',
+        default: '---', 
       },
       {
-        params: 'disabled',
-        desc: '未生效的子标签',
-        type: 'boolean',
-        select: 'disabled',
-        default: 'false',
+        params: 'data[]',
+        desc: 'data中数据结构如下',
+        type: '---',
+        select: '---',
+        default: '---', 
+      },
+      {
+        params: 'label',
+        desc: '指定节点标签为节点对象的某个属性值',
+        type: 'string, function(data, node)',
+        select: '---',
+        default: '---',
+      },
+      {
+        params: 'children',
+        desc: '指定子树为节点对象的某个属性值',
+        type: 'string',
+        select: '---',
+        default: '---',
       },
     ])
 
-    return {  data, columns }
+    return { TreeNormal, data, columns}
   }
 };
 </script>
