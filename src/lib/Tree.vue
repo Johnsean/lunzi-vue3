@@ -7,6 +7,7 @@
           </svg>
         <span>{{ item.label }}</span>
       </div>
+      <transition name="slide-fade">
       <Tree
         v-if="item.children"
         :data="item.children"
@@ -14,6 +15,8 @@
         class="children-item"
         v-show="item.isShow"
       />
+      </transition>
+
     </div>
   </div>
 </template>
@@ -39,7 +42,24 @@ export default {
 </script>
 
 <style scoped>
+/* 展开 */
 .ro90deg.icon{
   transform: rotate(90deg);
+  transition: all 0.1s linear;
+}
+
+/* 整体过渡 */
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
 }
 </style>
