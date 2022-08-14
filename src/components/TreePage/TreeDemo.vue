@@ -8,6 +8,14 @@
   </section>
   <Demo :component="TreeNormal"/>
 
+  <section class="second-title">
+    <h2>可选择</h2>
+    <p>
+      适用于需要选择层级时使用。
+      使用<span> isChecked </span>属性,值为真即<span>可选</span>
+    </p>
+  </section>
+  <Demo :component="TreeSelected"/>
 
 
   <Attr :columns="columns" :data="data"/>
@@ -16,6 +24,8 @@
 <script lang="ts">
 import Demo from '../Demo.vue'
 import TreeNormal from './TreeDemo/TreeNomal.vue'
+import TreeSelected from './TreeDemo/TreeSelected.vue'
+
 
 import Attr from '../Attr.vue'
 import {ref} from 'vue'
@@ -23,7 +33,7 @@ import {columns} from '../../lib/data'
 
 export default {
   name: 'TreeDemo',
-  components: { Demo, Attr, TreeNormal },
+  components: { Demo, Attr, TreeNormal, TreeSelected },
   setup(){
     const data = ref([
       {        
@@ -32,6 +42,13 @@ export default {
         type: 'array',
         select: '---',
         default: '---', 
+      },
+      {        
+        params: 'isChecked',
+        desc: '展示可选框',
+        type: 'boolean',
+        select: '---',
+        default: 'false', 
       },
       {
         params: 'data[]',
@@ -56,7 +73,7 @@ export default {
       },
     ])
 
-    return { TreeNormal, data, columns}
+    return { TreeNormal, TreeSelected, data, columns}
   }
 };
 </script>
