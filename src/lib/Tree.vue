@@ -2,6 +2,9 @@
   <div class="trees">
     <div class="list-item" v-for="(item, index) in myList" :key="index">
       <div class="item-name" @click="item.isShow = !item.isShow">
+          <svg class="icon" aria-hidden="true" v-show="item.children" :class="item.isShow?'ro90deg':'normal'">
+              <use xlink:href="#icon-trees"></use>
+          </svg>
         <span>{{ item.label }}</span>
       </div>
       <Tree
@@ -34,3 +37,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.ro90deg.icon{
+  transform: rotate(90deg);
+}
+</style>
