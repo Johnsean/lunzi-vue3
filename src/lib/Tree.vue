@@ -5,7 +5,8 @@
           <svg class="icon" aria-hidden="true" v-show="item.children" :class="item.isShow?'ro90deg':'normal'">
               <use xlink:href="#icon-trees"></use>
           </svg>
-        <span>{{ item.label }}</span>
+          <input type="checkbox" @click.stop="cancel">
+          <span>{{ item.label }}</span>
       </div>
       <transition name="slide-fade">
       <Tree
@@ -36,7 +37,11 @@ export default {
     const myList = computed(() =>
       props.data.map((r) => Object.assign(r, { isShow: false }))
     );
-    return { myList };
+
+    const cancel = (e)=>{
+      console.log(e)
+    }
+    return { myList, cancel };
   },
 };
 </script>
@@ -46,10 +51,18 @@ export default {
   padding: 4px;
 }
 
+input[type="checkbox"]{
+  margin: auto 8px;
+
+}
+
 /* 展开 */
 .ro90deg.icon{
   transform: rotate(90deg);
   transition: all 0.1s linear;
+}
+.icon{
+   vertical-align: 0;
 }
 
 /* 整体过渡 */
