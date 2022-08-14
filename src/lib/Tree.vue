@@ -42,6 +42,10 @@ export default {
 </script>
 
 <style scoped>
+.list-item{
+  padding: 4px;
+}
+
 /* 展开 */
 .ro90deg.icon{
   transform: rotate(90deg);
